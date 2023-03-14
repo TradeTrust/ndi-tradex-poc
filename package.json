@@ -1,0 +1,48 @@
+{
+  "name": "ndi-tradex-poc",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@govtechsg/decentralized-renderer-react-components": "^3.8.0",
+    "@govtechsg/oa-verify": "^8.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "myinfo-vc-verifier": "0.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "GENERATE_SOURCEMAP=false && react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1"
+  }
+}
