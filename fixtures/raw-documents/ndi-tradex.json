@@ -2,7 +2,6 @@
   "version": "https://schema.openattestation.com/3.0/schema.json",
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://schemata.openattestation.com/com/openattestation/1.0/DrivingLicenceCredential.json",
     "https://schemata.openattestation.com/com/openattestation/1.0/OpenAttestation.v3.json",
     "https://schemata.openattestation.com/io/tradetrust/Invoice/1.0/invoice-context.json",
     "https://gist.githubusercontent.com/simboonlong/83fbe7b1db0e1b8d290adaa9b53f43b7/raw/5058cac14f9ab2490ef7619483b5358699139db5/ndi-context.json"
@@ -60,7 +59,7 @@
   },
   "issuer": {
     "id": "did:ethr:0xE94E4f16ad40ADc90C29Dc85b42F1213E034947C",
-    "name": "My Own Company"
+    "name": "My Own Company Pte Ltd"
   },
   "openAttestationMetadata": {
     "template": {
@@ -92,10 +91,10 @@
     "type": ["VerifiableCredential"],
     "issuer": "did:web:sbl.alwaysdata.net:oa",
     "credentialSubject": {
-      "uen": "198801234H",
-      "companyname": "GovTech Pte Ltd",
+      "uen": "198801234E",
+      "companyname": "My Own Company Pte Ltd",
       "type": ["CorporateBasicDetails"],
-      "id": "0x1234567890123456789"
+      "id": "0xE94E4f16ad40ADc90C29Dc85b42F1213E034947C"
     },
     "expirationDate": "2023-11-01T06:45:43Z",
     "credentialStatus": {
@@ -107,9 +106,9 @@
     "issuanceDate": "2023-22-13T01:35:08Z",
     "proof": {
       "type": "BbsBlsSignature2020",
-      "created": "2023-03-13T10:08:03Z",
+      "created": "2023-03-15T00:55:21Z",
       "proofPurpose": "assertionMethod",
-      "proofValue": "txC8WW1aXh5q/j3yxN5EgfY5/aWC/Rj3TxF/U/X+0F0MKDnxUMKCIS6GQzjch8TAW3qhHR7SmwJQZq+XgbVuVuh7dTRkE+o2e6op8Q63d25XuptDphrmaBwEAaJkMVO84IYsK6R4aGN7P4FqQa3pGA==",
+      "proofValue": "sV/i0SqiH6HHLc/muDM0grZDSOv048SRd5y89Vf7cZZ457e/wjtMnr1Y6QOox2KfE1cd+3ANrzjW7v3/VU2Q1uvuwd039ZIuyleUlHot6C4maxOwkL2Izbl235uTC4WaDFbFe+jCeBwC3vSqrdP97A==",
       "verificationMethod": "did:web:sbl.alwaysdata.net:oa#didkey"
     }
   }
