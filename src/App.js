@@ -115,7 +115,7 @@ function App() {
         <h1>NDI Tradex: Proof of Concept</h1>
       </header>
       {fragments.length > 0 && (
-        <ul className="mb-4 border p-4">
+        <ul className="mb-4 border bg-gray-50 p-4">
           {fragments.map((fragment) => (
             <li className="mb-2" key={fragment.name}>
               <p className="font-bold">{fragment.type}</p>
@@ -125,7 +125,10 @@ function App() {
         </ul>
       )}
       <main>
-        <div className="border p-8 bg-yellow-100" {...getRootProps()}>
+        <div
+          className="mb-8 border-2 border-dashed p-8 bg-yellow-100"
+          {...getRootProps()}
+        >
           <input {...getInputProps()} />
           {isDragActive ? (
             <p>Drop the files here ...</p>
@@ -134,12 +137,38 @@ function App() {
           )}
         </div>
         {tradexDocument && (
-          <FrameConnector
-            style={{ width: "100%", border: "0px" }}
-            source={tradexDocument.openAttestationMetadata.template.url}
-            dispatch={dispatchActions}
-            onConnected={onConnected}
-          />
+          <>
+            {
+              // simple string match to confirm wallet address matched between ndi and tradex
+              tradexDocument.openAttestationMetadata.identityProof.identifier.includes(
+                tradexDocument.ndiMetadata.credentialSubject.id,
+              ) ? (
+                <div
+                  className="my-8 mx-auto max-w-md py-4 px-8 bg-white shadow-lg rounded-lg"
+                  style={{ backgroundColor: "rgb(240 253 244)" }}
+                >
+                  <h2 className="text-gray-800 text-3xl font-semibold">
+                    {tradexDocument.ndiMetadata.credentialSubject.companyname}
+                  </h2>
+                  <div className="mt-2 text-gray-600">
+                    <p>
+                      UEN: {tradexDocument.ndiMetadata.credentialSubject.uen}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <p className="font-semibold text-2xl text-center text-red-500">
+                  This document is not issued by Tradex and NDI.
+                </p>
+              )
+            }
+            <FrameConnector
+              style={{ width: "100%", border: "0px" }}
+              source={tradexDocument.openAttestationMetadata.template.url}
+              dispatch={dispatchActions}
+              onConnected={onConnected}
+            />
+          </>
         )}
       </main>
     </div>
