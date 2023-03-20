@@ -57,7 +57,7 @@ In its most minimal form, the raw combined document should look something like t
         // <NDI-IDVC-Context>,
         "https://w3id.org/vc/status-list/2021/v1"
       ],
-      "id": // DID-of-signer-of-IDENTITY-VC,
+      "id": // id of the VC, URI that points to the identity of this IDENTITY-VC,
       "type": ["VerifiableCredential"],
       "issuer": // DID-of-signer-of-IDENTITY-VC,
       "credentialSubject": {
