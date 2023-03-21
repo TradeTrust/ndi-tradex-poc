@@ -28,7 +28,7 @@ type NdiCorporateIdentityFragment =
 type VerifierType = Verifier<NdiCorporateIdentityFragment>;
 
 type NdiTradexDocument = v3.OpenAttestationDocument & {
-  ndiMetadata: any;
+  identityVC: any;
 };
 
 enum NdiCorporateIdentityCode {
@@ -57,8 +57,8 @@ const test: VerifierType["test"] = () => {
 const customVerify: VerifierType["verify"] = async (
   document: any,
 ): Promise<NdiCorporateIdentityFragment> => {
-  const corpVc = document.ndiMetadata;
-  const verificationResult = await MyInfoVcVerifier.verify(corpVc);
+  const corporateVc = document.identityVC.embeddedVC;
+  const verificationResult = await MyInfoVcVerifier.verify(corporateVc);
   console.log(verificationResult, "from ndi library");
   if (verificationResult.verified) {
     return {
@@ -183,18 +183,25 @@ function App() {
             {
               // simple string match to confirm wallet address matched between ndi and tradex
               tradexDocument.openAttestationMetadata.identityProof.identifier.includes(
-                tradexDocument.ndiMetadata.credentialSubject.id,
+                tradexDocument.identityVC.embeddedVC.credentialSubject.id,
               ) ? (
                 <div
                   className="my-8 mx-auto max-w-md py-4 px-8 bg-white shadow-lg rounded-lg"
                   style={{ backgroundColor: "rgb(240 253 244)" }}
                 >
                   <h2 className="text-gray-800 text-3xl font-semibold">
-                    {tradexDocument.ndiMetadata.credentialSubject.companyname}
+                    {
+                      tradexDocument.identityVC.embeddedVC.credentialSubject
+                        .companyname
+                    }
                   </h2>
                   <div className="mt-2 text-gray-600">
                     <p>
-                      UEN: {tradexDocument.ndiMetadata.credentialSubject.uen}
+                      UEN:{" "}
+                      {
+                        tradexDocument.identityVC.embeddedVC.credentialSubject
+                          .uen
+                      }
                     </p>
                   </div>
                 </div>
