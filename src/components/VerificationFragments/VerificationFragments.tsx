@@ -8,9 +8,13 @@ interface VerificationFragmentsProps {
 export const VerificationFragments: FunctionComponent<
   VerificationFragmentsProps
 > = ({ fragments }) => {
+  const validFragments = fragments.filter(
+    (fragment) => fragment.status === "VALID",
+  );
+
   return (
     <ul className="mb-4 border bg-gray-50 p-4">
-      {fragments.map((fragment) => (
+      {validFragments.map((fragment) => (
         <li className="mb-2" key={fragment.name}>
           <p className="font-bold">{fragment.type}</p>
           {fragment.name}: {fragment.status}
