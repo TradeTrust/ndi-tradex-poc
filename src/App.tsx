@@ -1,52 +1,92 @@
+import React from "react";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import {
   verificationBuilder,
   openAttestationVerifiers,
   isValid,
+  VerificationFragment,
+  Verifier,
+  ValidVerificationFragment,
+  InvalidVerificationFragment,
+  ErrorVerificationFragment,
 } from "@govtechsg/oa-verify";
 import {
   FrameConnector,
   renderDocument,
+  FrameActions,
+  HostActionsHandler,
 } from "@govtechsg/decentralized-renderer-react-components";
+import { v3 } from "@govtechsg/open-attestation";
 import MyInfoVcVerifier from "myinfo-vc-verifier";
 
-const ndiVerifier = {
-  skip: () => {
+type NdiCorporateIdentityFragment =
+  | ValidVerificationFragment<Boolean>
+  | InvalidVerificationFragment<Boolean>
+  | ErrorVerificationFragment<any>;
+
+type VerifierType = Verifier<NdiCorporateIdentityFragment>;
+
+type NdiTradexDocument = v3.OpenAttestationDocument & {
+  ndiMetadata: any;
+};
+
+enum NdiCorporateIdentityCode {
+  SKIPPED = 0,
+  UNEXPECTED_ERROR = 1,
+  INVALID_IDENTITY = 2,
+}
+
+const skip: VerifierType["skip"] = async () => {
+  return {
+    status: "SKIPPED",
+    type: "ISSUER_IDENTITY",
+    name: "NdiCorporateIdentity",
+    reason: {
+      code: NdiCorporateIdentityCode.SKIPPED,
+      codeString: NdiCorporateIdentityCode[NdiCorporateIdentityCode.SKIPPED],
+      message: `:)`,
+    },
+  };
+};
+
+const test: VerifierType["test"] = () => {
+  return true;
+};
+
+const customVerify: VerifierType["verify"] = async (
+  document: any,
+): Promise<NdiCorporateIdentityFragment> => {
+  const corpVc = document.ndiMetadata;
+  const verificationResult = await MyInfoVcVerifier.verify(corpVc);
+  console.log(verificationResult, "from ndi library");
+  if (verificationResult.verified) {
     return {
-      status: "SKIPPED",
-      type: "ISSUER_IDENTITY",
+      data: true,
       name: "NdiCorporateIdentity",
+      status: "VALID",
+      type: "ISSUER_IDENTITY",
+    };
+  } else {
+    return {
+      data: false,
+      name: "NdiCorporateIdentity",
+      status: "INVALID",
+      type: "ISSUER_IDENTITY",
       reason: {
-        code: 0,
-        codeString: "SKIPPED",
-        message: `:)`,
+        code: NdiCorporateIdentityCode.INVALID_IDENTITY,
+        codeString:
+          NdiCorporateIdentityCode[NdiCorporateIdentityCode.INVALID_IDENTITY],
+        message: `NDI corporate identity is invalid`,
       },
     };
-  },
-  test: () => {
-    return true;
-  },
-  verify: async (document) => {
-    const corpVc = document.ndiMetadata;
-    const verificationResult = await MyInfoVcVerifier.verify(corpVc);
-    console.log(verificationResult, "from ndi library");
-    if (verificationResult.verified) {
-      return {
-        data: true,
-        name: "NdiCorporateIdentity",
-        status: "VALID",
-        type: "ISSUER_IDENTITY",
-      };
-    } else {
-      return {
-        data: false,
-        name: "NdiCorporateIdentity",
-        status: "INVALID",
-        type: "ISSUER_IDENTITY",
-      };
-    }
-  },
+  }
+};
+
+const ndiVerifier: VerifierType = {
+  skip,
+  test,
+  verify: customVerify,
 };
 
 const verify = verificationBuilder(
@@ -56,27 +96,28 @@ const verify = verificationBuilder(
   },
 );
 
-const dispatchActions = (action) => {
+const dispatchActions = (action: FrameActions) => {
   if (action.type === "UPDATE_HEIGHT") {
     document
-      .getElementById("iframe")
+      .getElementById("iframe")!
       .setAttribute("height", `${window.innerHeight}px`);
   }
 };
 
 function App() {
-  const [tradexDocument, setTradexDocument] = useState(null);
-  const [fragments, setFragments] = useState([]);
+  const [tradexDocument, setTradexDocument] =
+    useState<NdiTradexDocument | null>(null);
+  const [fragments, setFragments] = useState<VerificationFragment[]>([]);
 
-  const onConnected = (frame) => {
+  const onConnected = (frame: HostActionsHandler) => {
     frame(
       renderDocument({
-        document: tradexDocument,
+        document: tradexDocument as NdiTradexDocument,
       }),
     );
   };
 
-  const onDrop = useCallback((acceptedFiles) => {
+  const onDrop = useCallback((acceptedFiles: any[]) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
 
@@ -84,7 +125,8 @@ function App() {
       reader.onerror = () => console.log("file reading has failed");
       reader.onload = async () => {
         const text = reader.result;
-        const document = JSON.parse(text);
+
+        const document = JSON.parse(text as string);
         const fragments = await verify(document);
         console.log(fragments, "from oa-verify library with custom verifier");
 
@@ -136,7 +178,7 @@ function App() {
             <p>Drag 'n' drop some files here, or click to select files</p>
           )}
         </div>
-        {tradexDocument && (
+        {tradexDocument && tradexDocument.openAttestationMetadata.template && (
           <>
             {
               // simple string match to confirm wallet address matched between ndi and tradex
