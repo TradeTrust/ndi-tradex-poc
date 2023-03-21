@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { VerificationFragment } from "@govtechsg/oa-verify";
 import { DocumentDropzone } from "./components/DocumentDropzone";
+import { CorporateVC } from "./components/CorporateVC";
 import { DocumentRenderer } from "./components/DocumentRenderer";
 import { VerificationFragments } from "./components/VerificationFragments";
-import { NdiTradexDocument } from "./types";
+import { TradexDocument } from "./types";
 
-function App() {
-  const [tradexDocument, setTradexDocument] =
-    useState<NdiTradexDocument | null>(null);
+export const App = () => {
+  const [tradexDocument, setTradexDocument] = useState<TradexDocument | null>(
+    null,
+  );
   const [fragments, setFragments] = useState<VerificationFragment[]>([]);
 
   const documentDropzoneProps = {
@@ -23,10 +25,11 @@ function App() {
       {fragments.length > 0 && <VerificationFragments fragments={fragments} />}
       <main>
         <DocumentDropzone {...documentDropzoneProps} />
-        <DocumentRenderer tradexDocument={tradexDocument} />
+        {tradexDocument && (
+          <CorporateVC identityVC={tradexDocument.identityVC} />
+        )}
+        {tradexDocument && <DocumentRenderer tradexDocument={tradexDocument} />}
       </main>
     </div>
   );
-}
-
-export default App;
+};

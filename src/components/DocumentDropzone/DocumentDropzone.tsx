@@ -3,10 +3,10 @@ import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { isValid, VerificationFragment } from "@govtechsg/oa-verify";
 import { verify } from "../../services/verify";
-import { NdiTradexDocument } from "../../types";
+import { TradexDocument } from "../../types";
 
 interface DocumentDropzoneProps {
-  setTradexDocument: (document: NdiTradexDocument | null) => void;
+  setTradexDocument: (document: TradexDocument | null) => void;
   setFragments: (fragments: VerificationFragment[]) => void;
 }
 
