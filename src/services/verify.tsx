@@ -36,7 +36,7 @@ const skip: VerifierType["skip"] = async () => {
     reason: {
       code: NdiCorporateIdentityCode.SKIPPED,
       codeString: NdiCorporateIdentityCode[NdiCorporateIdentityCode.SKIPPED],
-      message: `Document does not have identityVC.`,
+      message: `Document does not have identityVC`,
     },
   };
 };
@@ -55,10 +55,9 @@ const customVerify: VerifierType["verify"] = async (
   const verificationResult = await MyInfoVcVerifier.verify(corporateVc);
   console.log(verificationResult, "from ndi library");
 
-  const isWalletAddressMatched =
-    document.openAttestationMetadata.identityProof.identifier.includes(
-      document.identityVC.embeddedVC.credentialSubject.id,
-    ); // simple string match to confirm wallet address matched between ndi and tradex
+  const isWalletAddressMatched = document.issuer.id.includes(
+    document.identityVC.embeddedVC.credentialSubject.id,
+  ); // simple string match to confirm wallet address matched between NDI and tradex
 
   if (verificationResult.verified && isWalletAddressMatched) {
     return {
