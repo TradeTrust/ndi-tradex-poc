@@ -4,6 +4,9 @@ import { useDropzone } from "react-dropzone";
 import { isValid, VerificationFragment } from "@govtechsg/oa-verify";
 import { verify } from "../../services/verify";
 import { TradexDocument } from "../../types";
+import { createLogger } from "../../utils/debug";
+
+const log = createLogger("oa-verify");
 
 interface DocumentDropzoneProps {
   setTradexDocument: (document: TradexDocument | null) => void;
@@ -26,7 +29,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
 
           const document = JSON.parse(text as string);
           const fragments = await verify(document);
-          console.log(fragments, "from oa-verify library with custom verifier");
+          log(`fragments: ${JSON.stringify(fragments, null, 2)}`);
 
           if (
             isValid(fragments, ["DOCUMENT_INTEGRITY"]) &&
