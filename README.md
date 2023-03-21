@@ -71,6 +71,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ---
 
+### debug
+
+localStorage.debug = "app:\*"
+
 ### oa
 
 open-attestation wrap ./fixtures/raw-documents --output-dir ./fixtures/wrapped-documents --oav3

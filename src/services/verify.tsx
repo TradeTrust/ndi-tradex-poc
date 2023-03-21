@@ -10,6 +10,9 @@ import {
 import MyInfoVcVerifier from "myinfo-vc-verifier";
 import { utils } from "@govtechsg/open-attestation";
 import { IDENTITY_VC_TYPE, TradexDocument } from "../types";
+import { createLogger } from "../utils/debug";
+
+const log = createLogger("ndi");
 
 const verifierName = "NdiCorporateIdentity";
 
@@ -26,6 +29,7 @@ enum NdiCorporateIdentityCode {
   UNEXPECTED_ERROR = 1,
   INVALID_IDENTITY = 2,
   WALLET_NOT_MATCHED = 3,
+  REVOKED = 4,
 }
 
 const skip: VerifierType["skip"] = async () => {
@@ -52,19 +56,33 @@ const customVerify: VerifierType["verify"] = async (
   document: any,
 ): Promise<NdiCorporateIdentityFragment> => {
   const corporateVc = document.identityVC.embeddedVC;
+  const revokedStatus = await MyInfoVcVerifier.getRevokeStatus(corporateVc);
   const verificationResult = await MyInfoVcVerifier.verify(corporateVc);
-  console.log(verificationResult, "from ndi library");
+  log(`revokedStatus: ${revokedStatus}`);
+  log(`verificationResult: ${JSON.stringify(verificationResult, null, 2)}`);
 
   const isWalletAddressMatched = document.issuer.id.includes(
     document.identityVC.embeddedVC.credentialSubject.id,
   ); // simple string match to confirm wallet address matched between NDI and tradex
 
-  if (verificationResult.verified && isWalletAddressMatched) {
+  if (verificationResult.verified && isWalletAddressMatched && !revokedStatus) {
     return {
       data: true,
       name: verifierName,
       status: "VALID",
       type: "ISSUER_IDENTITY",
+    };
+  } else if (revokedStatus) {
+    return {
+      data: false,
+      name: verifierName,
+      status: "INVALID",
+      type: "ISSUER_IDENTITY",
+      reason: {
+        code: NdiCorporateIdentityCode.REVOKED,
+        codeString: NdiCorporateIdentityCode[NdiCorporateIdentityCode.REVOKED],
+        message: `NDI corporate identity has been revoked`,
+      },
     };
   } else if (!verificationResult.verified) {
     return {
