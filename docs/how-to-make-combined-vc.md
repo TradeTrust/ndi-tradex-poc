@@ -93,7 +93,7 @@ The main points to note are the 1) **addition of a new context**, and 2) an **ad
 
 # Additional Context
 
-One of the additions we made was to extend the current context of a oa v3 document to "recognise" an additional `idenityVC` field. The word "recognise" is in double quotes because we chose a way to tell the json-ld expander algorithm to actually ignore the `identityVC` field.
+One of the additions we made was to extend the current context of a oa v3 document to "recognise" an additional `identityVC` field. The word "recognise" is in double quotes because we chose a way to tell the json-ld expander algorithm to actually ignore the `identityVC` field.
 
 Within the new remote context, it resolves to something like this:
 
