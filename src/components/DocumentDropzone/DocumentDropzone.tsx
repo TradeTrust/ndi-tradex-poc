@@ -5,6 +5,7 @@ import { isValid, VerificationFragment } from "@govtechsg/oa-verify";
 import { verify } from "../../services/verify";
 import { TradexDocument } from "../../types";
 import { createLogger } from "../../utils/debug";
+import imgSrcTradeTrust from "../../assets/tradetrust-file.png";
 
 const log = createLogger("oa-verify");
 
@@ -56,14 +57,21 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
 
   return (
     <div
-      className="mb-8 border-2 border-dashed p-8 bg-yellow-100"
+      className="border-2 border-dashed rounded-lg p-16 bg-white text-center my-8 md:my-0"
       {...getRootProps()}
     >
       <input {...getInputProps()} />
+      <img
+        className="max-w-[60px] mx-auto mb-4"
+        src={imgSrcTradeTrust}
+        alt="TradeTrust file"
+      />
       {isDragActive ? (
-        <p>Drop the files here ...</p>
+        <p className="font-bold">Drop the files here ...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p className="font-bold">
+          Drop your TradeTrust Document to verify content
+        </p>
       )}
     </div>
   );
