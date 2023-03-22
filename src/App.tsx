@@ -49,21 +49,18 @@ export const App = () => {
             </div>
           </div>
         </section>
+        {tradexDocument && (
+          <section>
+            <div className="container py-16">
+              {fragments.length > 0 && (
+                <VerificationFragments fragments={fragments} />
+              )}
 
-        <section>
-          <div className="container py-16">
-            {fragments.length > 0 && (
-              <VerificationFragments fragments={fragments} />
-            )}
-            {tradexDocument && (
               <CorporateVC identityVC={tradexDocument.identityVC} />
-            )}
-            {tradexDocument && (
               <DocumentRenderer tradexDocument={tradexDocument} />
-            )}
-          </div>
-        </section>
-
+            </div>
+          </section>
+        )}
         <section>
           <div className="container py-16">
             <div className="flex flex-wrap items-center">
