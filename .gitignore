@@ -24,4 +24,4 @@ yarn-error.log*
 
 fixtures/others
 
-./src/output.css
+src/output.css
