@@ -27,7 +27,6 @@ export const App = () => {
           <TradeTrustLogo className="max-w-[170px]" />
         </div>
       </header>
-
       <main>
         <section className="bg-cerulean-50">
           <div className="container py-16">
@@ -50,16 +49,19 @@ export const App = () => {
           </div>
         </section>
         {tradexDocument && (
-          <section>
-            <div className="container py-16">
-              {fragments.length > 0 && (
-                <VerificationFragments fragments={fragments} />
-              )}
-
-              <CorporateVC identityVC={tradexDocument.identityVC} />
+          <>
+            <section className="bg-cerulean-50">
+              <div className="container py-16">
+                <CorporateVC identityVC={tradexDocument.identityVC} />
+                {fragments.length > 0 && (
+                  <VerificationFragments fragments={fragments} />
+                )}
+              </div>
+            </section>
+            <section>
               <DocumentRenderer tradexDocument={tradexDocument} />
-            </div>
-          </section>
+            </section>
+          </>
         )}
         <section>
           <div className="container py-16">
@@ -102,7 +104,7 @@ export const App = () => {
       </main>
       <footer className="my-4">
         <div className="container border-t border-b py-2 text-center">
-          <p>Privacy Policy Copyright © 2023 TradeTrust </p>
+          <p>Copyright © 2023 TradeTrust </p>
         </div>
       </footer>
     </div>

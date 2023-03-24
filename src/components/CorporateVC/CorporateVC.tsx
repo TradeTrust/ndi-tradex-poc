@@ -8,16 +8,22 @@ interface CorporateVCProps {
 export const CorporateVC: FunctionComponent<CorporateVCProps> = ({
   identityVC,
 }) => {
-  const { companyname, uen } = identityVC.embeddedVC.credentialSubject;
+  const { companyname, uen, id } = identityVC.embeddedVC.credentialSubject;
 
   return (
-    <div
-      className="my-8 mx-auto max-w-md py-4 px-8 bg-white shadow-lg rounded-lg"
-      style={{ backgroundColor: "rgb(240 253 244)" }}
-    >
-      <h2 className="text-gray-800 text-3xl font-semibold">{companyname}</h2>
-      <div className="mt-2 text-gray-600">
-        <p>UEN: {uen}</p>
+    <div className="mb-8">
+      <div className="mb-2">
+        <h2 className="font-semibold">Verify Document</h2>
+      </div>
+      <div className="mb-4">
+        <h4 className="text-black font-semibold">Issued by:</h4>
+        <h4 className="text-cerulean-500">{companyname}</h4>
+        <p className="text-gray-500">{id}</p>
+        <p className="text-gray-500">UEN: {uen}</p>
+      </div>
+      <div>
+        <h4 className="text-black font-semibold">Identity verified by:</h4>
+        <h4 className="text-cerulean-500">National Digital Identity</h4>
       </div>
     </div>
   );

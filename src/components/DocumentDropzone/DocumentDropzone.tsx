@@ -69,9 +69,15 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
       {isDragActive ? (
         <p className="font-bold">Drop the files here ...</p>
       ) : (
-        <p className="font-bold">
-          Drop your TradeTrust Document to verify content
-        </p>
+        <>
+          <p className="font-bold">
+            Drop your TradeTrust Document to verify content
+          </p>
+          <p className="my-4">or</p>
+          <button className="bg-cerulean-500 text-white rounded-2xl px-4 py-2">
+            Select Document
+          </button>
+        </>
       )}
     </div>
   );

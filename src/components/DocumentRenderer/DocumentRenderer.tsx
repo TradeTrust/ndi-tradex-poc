@@ -18,7 +18,7 @@ export const DocumentRenderer: FunctionComponent<DocumentRendererProps> = ({
     if (action.type === "UPDATE_HEIGHT") {
       document
         .getElementById("iframe")!
-        .setAttribute("height", `${window.innerHeight}px`);
+        .setAttribute("height", `${action.payload}px`);
     }
   };
 
