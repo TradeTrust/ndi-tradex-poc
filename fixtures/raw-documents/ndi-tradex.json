@@ -86,7 +86,7 @@
       "@context": [
         "https://w3id.org/security/bbs/v1",
         "https://www.w3.org/2018/credentials/v1",
-        "https://gist.githubusercontent.com/simboonlong/29b5d8fca8c590f8fa702ba886d58cfd/raw/ab384959f1c4af21763190cba3fcf281e4be9470/corporate-basic-details-context.json",
+        "https://stg.issuer.myinfo.gov.sg/myinfobusiness/schema/corporatebasicdetails/v1",
         "https://w3id.org/vc/status-list/2021/v1"
       ],
       "id": "https://sbl.alwaysdata.net/oa/credentials/123456789",
