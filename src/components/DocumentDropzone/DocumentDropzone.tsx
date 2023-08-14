@@ -1,7 +1,11 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { isValid, VerificationFragment } from "@govtechsg/oa-verify";
+import {
+  isValid,
+  VerificationFragment,
+  InvalidVerificationFragment,
+} from "@govtechsg/oa-verify";
 import { verify } from "../../services/verify";
 import { TradexDocument } from "../../types";
 import { createLogger } from "../../utils/debug";
@@ -9,17 +13,37 @@ import imgSrcTradeTrust from "../../assets/tradetrust-file.png";
 
 const log = createLogger("oa-verify");
 
+type Status = "initial" | "pending" | "error";
+
 interface DocumentDropzoneProps {
   setTradexDocument: (document: TradexDocument | null) => void;
+  fragments: VerificationFragment[];
   setFragments: (fragments: VerificationFragment[]) => void;
 }
 
 export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
   setTradexDocument,
+  fragments,
   setFragments,
 }) => {
+  const [status, setStatus] = useState<Status>("initial");
+
+  const uiStatus =
+    status === "error"
+      ? "bg-red-50 border-red-300"
+      : "bg-white border-gray-300";
+  const uiErrorMsgs = fragments.filter(
+    (fragment) => fragment.status === "INVALID",
+  ) as InvalidVerificationFragment<any>[];
+
+  const onDragEnter = useCallback(() => {
+    setStatus("initial");
+    setFragments([]);
+  }, [setFragments]);
+
   const onDrop = useCallback(
     (acceptedFiles: any[]) => {
+      setStatus("pending");
       acceptedFiles.forEach((file) => {
         const reader = new FileReader();
 
@@ -32,17 +56,14 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
           const fragments = await verify(document);
           log(`fragments: ${JSON.stringify(fragments, null, 2)}`);
 
-          if (
-            isValid(fragments, ["DOCUMENT_INTEGRITY"]) &&
-            isValid(fragments, ["DOCUMENT_STATUS"]) &&
-            isValid(fragments, ["ISSUER_IDENTITY"])
-          ) {
+          if (isValid(fragments)) {
+            setStatus("initial");
             setFragments(fragments);
             setTradexDocument(document);
           } else {
+            setStatus("error");
             setFragments(fragments);
             setTradexDocument(null);
-            console.warn("One of the fragments is invalid.");
           }
         };
         reader.readAsText(file);
@@ -53,11 +74,12 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
+    onDragEnter,
   });
 
   return (
     <div
-      className="border-2 border-dashed rounded-lg p-16 bg-white text-center my-8 md:my-0"
+      className={`border-2 border-dashed rounded-lg p-16 text-center my-8 md:my-0 ${uiStatus}`}
       {...getRootProps()}
     >
       <input {...getInputProps()} />
@@ -66,7 +88,29 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
         src={imgSrcTradeTrust}
         alt="TradeTrust file"
       />
-      {isDragActive ? (
+
+      {status === "pending" ? (
+        <svg
+          className="animate-spin h-5 w-5 text-cerulean mx-auto"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+      ) : isDragActive ? (
         <p className="font-bold">Drop the files here ...</p>
       ) : (
         <>
@@ -78,6 +122,15 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
             Select Document
           </button>
         </>
+      )}
+      {uiErrorMsgs.length > 0 && (
+        <ul className="text-red-600 mt-8">
+          {uiErrorMsgs.map((fragment) => (
+            <li key={fragment.name}>
+              <p className="text-red-600">{fragment.reason.message}.</p>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
