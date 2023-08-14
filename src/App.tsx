@@ -17,6 +17,7 @@ export const App = () => {
 
   const documentDropzoneProps = {
     setTradexDocument,
+    fragments,
     setFragments,
   };
 
