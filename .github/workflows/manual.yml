@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+jobs:
+  e2e:
+    name: E2E
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Clean Install
+        run: npm ci
+      - name: Build App
+        run: npm run build
+      - name: Integration Tests
+        run: npm run e2e:ci
