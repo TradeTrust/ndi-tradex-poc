@@ -18,10 +18,15 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-scripts": "5.0.1",
+    "testcafe": "^2.6.2",
     "typescript": "^5.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "e2e": "testcafe chrome --hostname localhost integration/*.spec.ts",
+    "e2e:single": "testcafe chrome --hostname localhost -L",
+    "e2e:ci": "testcafe chrome:headless --hostname localhost -c 3 integration/*.spec.ts --app 'npm run serve' --app-init-delay 10000",
+    "serve": "npx http-server ./build -p 3000",
     "css": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
     "start": "concurrently 'npm run css -- --watch' 'react-app-rewired start'",
     "build": "npm run css && CI=false react-app-rewired build",
