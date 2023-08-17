@@ -135,6 +135,6 @@ const ndiVerifier: VerifierType = {
 export const verify = verificationBuilder(
   [...openAttestationVerifiers, ndiVerifier],
   {
-    network: "goerli",
+    network: "sepolia", // network doesn't matter with did-signed OA documetns
   },
 );
