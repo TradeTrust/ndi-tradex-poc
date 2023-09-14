@@ -1,0 +1,32 @@
+{
+  "credentialSubject": {
+    "lei": "391200WCZAYD47QIKX37",
+    "entityName": "esatus Schweiz AG",
+    "id": "did:ethr:0xF55b1C1E43D1EFCD1A0D9a99326715c0f5C9cE77",
+    "type": ["BasicDIDLEIMapping"]
+  },
+  "issuanceDate": "2023-08-04T08:52:22Z",
+  "id": "https://example.org/credentials/XYZ",
+  "proof": {
+    "created": "2023-08-04T08:52:23Z",
+    "jws": "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..tFV5-NEkZe0JdmMMrnJHcKqJe3QRt1QMw1pE0ZtvTyIxI55AF8o1eN0EKZ2wuLKeKbJWccoVPG7JEMvc1C8d8g",
+    "proofPurpose": "assertionMethod",
+    "type": "EcdsaSecp256k1Signature2019",
+    "verificationMethod": "did:web:didrp-test.esatus.com#keys-1"
+  },
+  "type": ["VerifiableCredential"],
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://didrp-test.esatus.com/schemas/basic-did-lei-mapping/v1",
+    "https://w3id.org/vc/status-list/2021/v1"
+  ],
+  "issuer": "did:web:didrp-test.esatus.com",
+  "credentialStatus": {
+    "statusPurpose": "revocation",
+    "statusListIndex": 54488,
+    "id": "https://didrp-test.esatus.com/credentials/statuslist/1#54488",
+    "type": ["StatusList2021Entry"],
+    "statusListCredential": "https://didrp-test.esatus.com/credentials/statuslist/1"
+  },
+  "expirationDate": "2024-08-03T08:52:22.601232Z"
+}
