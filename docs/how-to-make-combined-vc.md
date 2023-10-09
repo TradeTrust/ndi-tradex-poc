@@ -1,7 +1,6 @@
 # How to make a Combined VC
 First, a definition: **Combined VC** refers to a normal open-attestation document with an embedded or spliced identity VC from a established identity provider (This document will only refer to the established identifier as NDI/my-info).
 
-
 In its most minimal form, the raw combined document should look something like this:
 ```json
 {
@@ -10,8 +9,8 @@ In its most minimal form, the raw combined document should look something like t
     "https://www.w3.org/2018/credentials/v1",
     "https://schemata.openattestation.com/com/openattestation/1.0/OpenAttestation.v3.json",
     "https://schemata.openattestation.com/io/tradetrust/Invoice/1.0/invoice-context.json",
+    // the below additional context should be hosted on a public instance and available when expanding the context:
     "https://gist.githubusercontent.com/cavacado/d6f4a4d7e817fb067ee8dde708dbd954/raw/a1b02636579ec70c4bacb73bd38d1e2d5a6f7a2b/extended+type3.json",
-    "above-entry-should-be-replaced-by-a-context-published-by-schemata.openattestation-once-we-finalised-the-way-of-extension",
     // NEW must add this context inorder to wrap the COMBINED-VC and not throw (from oa-cli)
   ],
   "issuanceDate": "2010-01-01T19:23:24Z",
@@ -137,7 +136,3 @@ The `embeddedVC` field is just to contain the identity VC payload from the ident
 After these new items have been added to the raw document, it becomes the raw combined VC's payload that can be processed with our usual oa methods (ie `wrap`, `sign`). Follow the tutorial [here](https://www.openattestation.com/docs/integrator-section/verifiable-document/did/create) if unsure.
 
 Once that is done, the signed document is considered to be a document that is **issued** by `SIGNER-OF-COMBINED-VC` and **identified** by `SIGNER-OF-IDENITY-VC`, which could be realised as a counterpart to the other DID-signing methods of OA. ([In particular DID issued, identified by DNS](https://github.com/Open-Attestation/adr/blob/master/issuing_using_did.md#issued-via-direct-signing-identified-by-did))
-
-# TODOS:
-- publish finalised extension of context solution on schemata
-- get reviews on this doc.
