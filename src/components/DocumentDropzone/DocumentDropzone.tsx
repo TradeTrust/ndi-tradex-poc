@@ -5,7 +5,7 @@ import {
   isValid,
   VerificationFragment,
   InvalidVerificationFragment,
-} from "@govtechsg/oa-verify";
+} from "@tradetrust/oa-verify";
 import { verify } from "../../services/verify";
 import { TradexDocument } from "../../types";
 import { createLogger } from "../../utils/debug";
@@ -33,7 +33,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
       ? "bg-red-50 border-red-300"
       : "bg-white border-gray-300";
   const uiErrorMsgs = fragments.filter(
-    (fragment) => fragment.status === "INVALID",
+    (fragment) => fragment.status === "INVALID" || fragment.status === "ERROR"
   ) as InvalidVerificationFragment<any>[];
 
   const onDragEnter = useCallback(() => {
@@ -69,7 +69,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
         reader.readAsText(file);
       });
     },
-    [setFragments, setTradexDocument],
+    [setFragments, setTradexDocument]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -127,6 +127,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
         <ul className="text-red-600 mt-8">
           {uiErrorMsgs.map((fragment) => (
             <li key={fragment.name}>
+              <p className="text-red-600">type: {fragment.type}</p>
               <p className="text-red-600">{fragment.reason.message}.</p>
             </li>
           ))}

@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { VerificationFragment } from "@govtechsg/oa-verify";
+import { VerificationFragment } from "@tradetrust/oa-verify";
 import { DocumentDropzone } from "./components/DocumentDropzone";
-import { CorporateVC } from "./components/CorporateVC";
-import { DocumentRenderer } from "./components/DocumentRenderer";
-import { VerificationFragments } from "./components/VerificationFragments";
 import { TradexDocument } from "./types";
 import { TradeTrustLogo } from "./assets/logos";
 import { TickIcon } from "./assets/icons";
 import imgSrcHelp from "./assets/how-can-we-help.png";
+import { Core } from "./components/Core";
 
 export const App = () => {
   const [tradexDocument, setTradexDocument] = useState<TradexDocument | null>(
-    null,
+    null
   );
   const [fragments, setFragments] = useState<VerificationFragment[]>([]);
 
@@ -20,6 +18,8 @@ export const App = () => {
     fragments,
     setFragments,
   };
+
+  console.log(fragments);
 
   return (
     <div>
@@ -50,19 +50,7 @@ export const App = () => {
           </div>
         </section>
         {tradexDocument && (
-          <>
-            <section className="bg-cerulean-50">
-              <div className="container py-16">
-                <CorporateVC identityVC={tradexDocument.identityVC} />
-                {fragments.length > 0 && (
-                  <VerificationFragments fragments={fragments} />
-                )}
-              </div>
-            </section>
-            <section>
-              <DocumentRenderer tradexDocument={tradexDocument} />
-            </section>
-          </>
+          <Core fragments={fragments} document={tradexDocument} />
         )}
         <section>
           <div className="container py-16">

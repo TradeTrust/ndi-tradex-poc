@@ -23,12 +23,11 @@ test("should show correct custom error message when uploading an invalid combine
   await t
     .expect(
       Selector("p").withText(
-        "Wallet address did not matched between NDI and Tradex",
-      ).exists,
+        "Wallet address did not matched between NDI and Tradex"
+      ).exists
     )
     .ok();
 });
-
 
 test("should show correct custom error message when uploading an invalid combined VC, when idVc is revoked", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
@@ -38,9 +37,23 @@ test("should show correct custom error message when uploading an invalid combine
   await t.wait(5000);
   await t
     .expect(
-      Selector("p").withText(
-        "NDI corporate identity has been revoked",
-      ).exists,
+      Selector("p").withText("NDI corporate identity has been revoked").exists
     )
+    .ok();
+});
+
+test("should show unexpected error message when uploading an invalid combined VC, when combined VC's signature is not signed correctly", async (t) => {
+  await t.setFilesToUpload("input[type=file]", [
+    "../fixtures/error-documents/invalid-combined-signature.json",
+  ]);
+
+  await t.wait(5000);
+  await t
+    .expect(
+      Selector("p").withText("merkle root is not signed correctly").exists
+    )
+    .ok();
+  await t
+    .expect(Selector("p").withText("Unexpected error encountered").exists)
     .ok();
 });

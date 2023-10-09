@@ -1,4 +1,4 @@
-import unrevoked from "../../fixtures/gleif-idvcs/unrevoked.json";
+import unrevoked from "../../fixtures/idvc/gleif-idvcs/unrevoked.json";
 import MyInfoVcVerifier from "myinfo-vc-verifier";
 
 test("should be able to verify did:web issued documents via NDI module", async () => {

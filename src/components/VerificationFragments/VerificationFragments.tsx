@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { VerificationFragment } from "@govtechsg/oa-verify";
+import { VerificationFragment } from "@tradetrust/oa-verify";
 import { TickIcon } from "../../assets/icons";
 
 enum Status {
