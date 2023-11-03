@@ -2,7 +2,7 @@ import { Selector } from "testcafe";
 
 fixture`Home`.page("http://localhost:3000");
 
-test("should show correct issuer identity when uploading a valid combined VC", async (t) => {
+test("should show correct issuer identity when uploading a valid ttv4-alpha combined VC", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
     "../fixtures/v4/tt/did-idvc-wrapped-signed.json",
   ]);
@@ -14,7 +14,7 @@ test("should show correct issuer identity when uploading a valid combined VC", a
     .ok();
 });
 
-test("should show correct custom error message when uploading an invalid combined VC, where issuer id wallet address did not matched idVc corporate details id", async (t) => {
+test("should show correct custom error message when uploading an invalid ttv4-alpha combined VC, where issuer id wallet address did not matched idVc corporate details id", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
     "../fixtures/v4/tt/did-idvc-wrapped-signed-wrong-binding.json",
   ]);
@@ -29,7 +29,7 @@ test("should show correct custom error message when uploading an invalid combine
     .ok();
 });
 
-test("should show correct custom error message when uploading an invalid combined VC, when idVc is revoked", async (t) => {
+test("should show correct custom error message when uploading an invalid ttv4-alpha combined VC, when idVc is revoked", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
     "../fixtures/v4/tt/did-idvc-wrapped-signed-idvc-revoked.json",
   ]);
@@ -42,7 +42,7 @@ test("should show correct custom error message when uploading an invalid combine
     .ok();
 });
 
-test("should show unexpected error message when uploading an invalid combined VC, when combined VC's signature has been tampered", async (t) => {
+test("should show unexpected error message when uploading an invalid ttv4-alpha combined VC, when combined VC's signature has been tampered", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
     "../fixtures/v4/tt/did-idvc-wrapped-signed-tampered-signature.json",
   ]);
