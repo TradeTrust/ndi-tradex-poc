@@ -32,16 +32,22 @@ export const DocumentRenderer: FunctionComponent<DocumentRendererProps> = ({
           ? {
               document: utils.getData(tradexDocument) as any,
             }
-          : { document: tradexDocument as any}
+          : { document: tradexDocument as any }
       )
     );
   };
 
   const getLocation = useCallback(
     (document: TradexDocument): string => {
-      if (utils.isWrappedV2Document(document)) {
+      if (
+        utils.isWrappedV2Document(document) ||
+        utils.isSignedWrappedV2Document(document)
+      ) {
         return get(utils.getData(document), "$template.url", fallback);
-      } else if (utils.isSignedWrappedV3Document(document)) {
+      } else if (
+        utils.isSignedWrappedV3Document(document) ||
+        utils.isWrappedV3Document(document)
+      ) {
         return get(document, "openAttestationMetadata.template.url", fallback);
       } else if (
         utils.isSignedWrappedOAV4Document(document) ||

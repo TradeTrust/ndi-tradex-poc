@@ -14,8 +14,10 @@ interface CoreProps {
 export const Core: FunctionComponent<CoreProps> = ({ document, fragments }) => {
   const renderContent = useCallback(
     (document: TradexDocument) => {
-      if (utils.isWrappedV2Document(document) || utils.isSignedWrappedV2Document(document)) {
-        console.log("v2");
+      if (
+        utils.isWrappedV2Document(document) ||
+        utils.isSignedWrappedV2Document(document)
+      ) {
         return (
           <>
             <section className="bg-cerulean-50">
@@ -30,7 +32,10 @@ export const Core: FunctionComponent<CoreProps> = ({ document, fragments }) => {
             </section>
           </>
         );
-      } else if (utils.isSignedWrappedV3Document(document)) {
+      } else if (
+        utils.isSignedWrappedV3Document(document) ||
+        utils.isWrappedV3Document(document)
+      ) {
         return (
           <>
             <section className="bg-cerulean-50">

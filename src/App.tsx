@@ -19,8 +19,6 @@ export const App = () => {
     setFragments,
   };
 
-  console.log(fragments);
-
   return (
     <div>
       <header className="bg-white">
