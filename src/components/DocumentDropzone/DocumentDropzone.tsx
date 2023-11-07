@@ -43,6 +43,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
 
   const onDrop = useCallback(
     (acceptedFiles: any[]) => {
+      setTradexDocument(null) // clear
       setStatus("pending");
       acceptedFiles.forEach((file) => {
         const reader = new FileReader();
