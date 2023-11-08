@@ -1,6 +1,6 @@
 import { Selector } from "testcafe";
 
-fixture`Home`.page("http://localhost:3000");
+fixture`v4-combined-vc`.page("http://localhost:3000");
 
 test("should show correct issuer identity when uploading a valid ttv4-alpha combined VC", async (t) => {
   await t.setFilesToUpload("input[type=file]", [

@@ -28,6 +28,7 @@
   },
   "scripts": {
     "e2e": "testcafe chrome --hostname localhost integration/*.spec.ts",
+    "e2e:headless": "testcafe chrome:headless --hostname localhost integration/*.spec.ts",
     "e2e:single": "testcafe chrome --hostname localhost -L",
     "e2e:ci": "testcafe chrome:headless --hostname localhost -c 3 integration/*.spec.ts --app 'npm run serve' --app-init-delay 10000",
     "serve": "npx http-server ./build -p 3000",

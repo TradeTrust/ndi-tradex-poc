@@ -1,7 +1,6 @@
-import { Selector } from "testcafe";
 import { validateIframeTexts } from "./helper";
 
-fixture`Home`.page("http://localhost:3000");
+fixture`v4`.page("http://localhost:3000");
 
 test("should show correct verification when uploading a valid oav4-alpha VC", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
@@ -19,9 +18,9 @@ test("should show correct verification when uploading a valid ttv4-alpha VC", as
     "../fixtures/v4/tt/did-invoice-vanilla.json",
   ]);
 
-  await Selector("#iframe")();
-  await t.expect(Selector("h4").withText("Identity verified by:").exists).ok();
-  await t
-    .expect(Selector("h4").withText("National Digital Identity").exists)
-    .ok();
+  await validateIframeTexts([
+    "ABC Company",
+    "def@company.com",
+    "urn:uuid:a013fb9d-bb03-4056-b696-05575eceaf42"
+  ]);
 });

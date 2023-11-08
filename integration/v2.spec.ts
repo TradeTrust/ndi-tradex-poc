@@ -1,6 +1,6 @@
 import { validateIframeTexts } from "./helper";
 
-fixture`Home`.page("http://localhost:3000");
+fixture`v2`.page("http://localhost:3000");
 
 test("should show correct verification when uploading a valid v2 VC", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
