@@ -30,8 +30,8 @@ export const CorporateVC: FunctionComponent<CorporateVCProps> = ({
       <div className="mb-4">
         <h4 className="text-black font-semibold">Issued by:</h4>
         <h4 className="text-cerulean-500">{companyname}</h4>
-        <p className="text-gray-500">{id}</p>
         <p className="text-gray-500">UEN: {uen}</p>
+        <p className="text-gray-500">{id}</p>
       </div>
       <div>
         <h4 className="text-black font-semibold">Identity verified by:</h4>

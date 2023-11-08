@@ -55,6 +55,19 @@ test("should show correct custom error message when uploading an invalid ttv4-al
     .ok();
 });
 
+test("should show correct custom error message when uploading a ttv4-alpha combined VC, when there is missing IDVC", async (t) => {
+  await t.setFilesToUpload("input[type=file]", [
+    "../fixtures/v4/tt/did-idvc-wrapped-signed-missing-idvc.json",
+  ]);
+
+  await t.wait(5000);
+  await t
+    .expect(
+      Selector("p").withText("document does not have a identity vc").exists
+    )
+    .ok();
+});
+
 test("should show unexpected error message when uploading an invalid ttv4-alpha combined VC, when combined VC's signature has been tampered", async (t) => {
   await t.setFilesToUpload("input[type=file]", [
     "../fixtures/v4/tt/did-idvc-wrapped-signed-tampered-signature.json",
