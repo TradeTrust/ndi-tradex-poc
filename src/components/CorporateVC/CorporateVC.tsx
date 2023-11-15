@@ -6,7 +6,6 @@ interface CorporateVCProps {
   document: TradexDocument;
 }
 
-// rather have
 const fallback = {
   companyname: "XYZ",
   uen: "123",
