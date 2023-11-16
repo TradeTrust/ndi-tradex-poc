@@ -1,0 +1,32 @@
+{
+  "@context": [
+    "https://w3id.org/security/bbs/v1",
+    "https://www.w3.org/2018/credentials/v1",
+    "https://stg.issuer.myinfo.gov.sg/myinfobusiness/schema/corporatebasicdetails/v1",
+    "https://w3id.org/vc/status-list/2021/v1"
+  ],
+  "id": "https://sbl.alwaysdata.net/oa/credentials/123456789",
+  "type": ["VerifiableCredential"],
+  "issuer": "did:web:sbl.alwaysdata.net:oa",
+  "credentialSubject": {
+    "uen": "198801234E",
+    "companyname": "My Own Company Pte Ltd",
+    "type": ["CorporateBasicDetails"],
+    "id": "0xE94E4f16ad40ADc90C29Dc85b42F1213E034947C"
+  },
+  "expirationDate": "2023-11-01T06:45:43Z",
+  "credentialStatus": {
+    "id": "https://sbl.alwaysdata.net/oa/status/1#325",
+    "type": "StatusList2021Entry",
+    "statusListIndex": 325,
+    "statusListCredential": "https://sbl.alwaysdata.net/oa/status/1/325"
+  },
+  "issuanceDate": "2023-22-13T01:35:08Z",
+  "proof": {
+    "type": "BbsBlsSignature2020",
+    "created": "2023-03-15T00:55:21Z",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "sV/i0SqiH6HHLc/muDM0grZDSOv048SRd5y89Vf7cZZ457e/wjtMnr1Y6QOox2KfE1cd+3ANrzjW7v3/VU2Q1uvuwd039ZIuyleUlHot6C4maxOwkL2Izbl235uTC4WaDFbFe+jCeBwC3vSqrdP97A==",
+    "verificationMethod": "did:web:sbl.alwaysdata.net:oa#didkey"
+  }
+}

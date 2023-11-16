@@ -1,0 +1,82 @@
+{
+  "version": "https://schema.openattestation.com/2.0/schema.json",
+  "data": {
+    "name": "60769bff-e74c-4ab4-87f6-2f28d6e460a9:string:TradeTrust Invoice v2",
+    "$template": {
+      "name": "a3de9299-b175-48b1-82e6-f1f5228c47fc:string:INVOICE",
+      "type": "6fa5d1f7-46ae-4c05-afef-25061cffa265:string:EMBEDDED_RENDERER",
+      "url": "9cd54902-9982-4bc1-b30d-606e3938e5f2:string:https://generic-templates.tradetrust.io"
+    },
+    "id": "8b5bd014-a71e-4a2b-9a7a-75e1dd3d1223:string:1111",
+    "date": "292a7207-d4f1-4663-9566-3e7cab5b07aa:string:2018-02-21",
+    "customerId": "962d1bf2-6c05-42e7-95e8-70bbbfec48d0:string:564",
+    "terms": "7924d878-4d54-4537-977f-a10585e138fa:string:Due Upon Receipt",
+    "billFrom": {
+      "name": "fd1439f8-57a1-44df-bbdb-ed550a51acec:string:ABC Company",
+      "streetAddress": "42ca4385-c69a-4b28-9b7a-77d93d4e9d9f:string:Level 1, Industry Offices",
+      "city": "d89b66f0-775e-42c4-9369-09b94019bbe5:string:Singapore",
+      "postalCode": "5ce6c334-36de-4d24-8505-b57f92e0f922:string:123456",
+      "phoneNumber": "b6fe822b-2b65-4325-9353-6a669907bf2b:string:60305029"
+    },
+    "billTo": {
+      "company": {
+        "name": "de18daa9-add1-467b-8ded-ab9bad721bde:string:DEF Company",
+        "streetAddress": "2fa073d5-7cb2-4195-beaa-670250cdbd97:string:Level 2, Industry Offices",
+        "city": "a7f70739-a8ec-4e08-86dc-5b521faf44fd:string:Singapore",
+        "postalCode": "4f241282-96b4-4f62-8956-718ad0b6e5c5:string:612345",
+        "phoneNumber": "5dd26b92-4b39-44cc-b790-10a7d4fa2ee9:string:61204028"
+      },
+      "name": "b252a23b-3d9c-4490-aedc-8c50381b59c9:string:James Lee",
+      "email": "ab65b536-cbf7-4f99-8f58-afab797b2789:string:def@company.com"
+    },
+    "billableItems": [
+      {
+        "description": "013433ec-d5ae-4443-8ef1-80b089419cec:string:Service Fee",
+        "quantity": "6c597929-ed9e-4932-abb7-8c2299573f4f:number:1",
+        "unitPrice": "777f6f7b-c380-459f-8490-c7818f9bacda:number:200",
+        "amount": "8e2fc719-2ab2-44b6-8802-fd28e86b2837:number:200"
+      },
+      {
+        "description": "674889c3-7ab8-44b8-ac35-c635f2b5180d:string:Labor: 5 hours at $75/hr",
+        "quantity": "7ff1dac6-3d7e-4b82-aa11-01c1ebae2bcd:number:5",
+        "unitPrice": "ad98f0ca-bd72-4a64-b19b-8ce2c2f10d64:number:75",
+        "amount": "f7aad4fb-3f9b-4447-91f5-ddaec6e46a61:number:375"
+      },
+      {
+        "description": "5236a55c-106a-4821-ad8a-64bea3d35495:string:New client discount",
+        "quantity": "fe798a9d-eb33-4a51-bd43-a673411e83cd:number:1",
+        "unitPrice": "0cda8288-5c71-4097-8d9a-82881ca64e26:number:50",
+        "amount": "0687816b-e044-4d44-833b-05d35703e0bd:number:50"
+      }
+    ],
+    "subtotal": "55da9fa5-056d-4ef4-a7d6-559fb7afb355:number:625",
+    "tax": "1b587211-3f8b-4fe3-b622-bdb5c3a9b03a:number:0",
+    "taxTotal": "9e6656a5-d304-4ab5-9eee-6f431e0c2090:number:0",
+    "total": "fb7e19b8-a121-4ef7-8c4a-fbb84d18c237:number:625",
+    "issuers": [
+      {
+        "name": "d1c2c251-05ef-4233-bf50-906330931923:string:GovTech",
+        "documentStore": "6c5eafd5-2bef-434b-885d-60ba0b92b3eb:string:0x93092C2B449712281008112870063fF439367C00",
+        "identityProof": {
+          "type": "52b4dc91-905e-4440-891f-c798d08406c1:string:DNS-TXT",
+          "location": "23461b8d-7f66-41ce-b057-c119080aae58:string:example.tradetrust.io"
+        }
+      }
+    ],
+    "links": {
+      "self": {
+        "href": "17bca005-e9e6-4889-aee6-be70ab42d2c9:string:https://action.openattestation.com/?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fgallery.openattestation.com%2Fstatic%2Fdocuments%2Ftradetrust%2Fv2%2Finvoice-mumbai.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fdev.tradetrust.io%22%2C%22chainId%22%3A%2280001%22%7D%7D"
+      }
+    },
+    "network": {
+      "chain": "62748c29-005b-4d09-8e48-826d58a868d4:string:MATIC",
+      "chainId": "2783b4dc-ca99-4b10-8ea3-a0a06b92c276:string:80001"
+    }
+  },
+  "signature": {
+    "type": "SHA3MerkleProof",
+    "targetHash": "8c543fb92fa771c3643f600eb9393dc08425fa6a716184bb1620663d27dd51fa",
+    "proof": [],
+    "merkleRoot": "8c543fb92fa771c3643f600eb9393dc08425fa6a716184bb1620663d27dd51fa"
+  }
+}

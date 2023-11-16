@@ -1,0 +1,240 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://schemata.openattestation.com/com/openattestation/4.0/alpha-context.json"
+  ],
+  "type": ["VerifiableCredential", "OpenAttestationCredential"],
+  "validFrom": "2023-08-28T10:00:00+08:00",
+  "name": "TradeTrust Brochure",
+  "issuer": {
+    "id": "did:ethr:0xe93502ce1A52C1c0e99A2eB6666263EA53dB0a5e",
+    "type": "OpenAttestationIssuer",
+    "name": "TradeTrust Demo",
+    "identityProof": {
+      "identityProofType": "DNS-DID",
+      "identifier": "demo.tradetrust.io"
+    }
+  },
+  "credentialStatus": {
+    "type": "OpenAttestationCredentialStatus",
+    "credentialStatusType": "NONE"
+  },
+  "renderMethod": {
+    "type": "OpenAttestationRenderMethod",
+    "renderMethodType": "EMBEDDED_RENDERER",
+    "name": "W3C_BROCHURE",
+    "url": "https://generic-templates.tradetrust.io"
+  },
+  "credentialSubject": {
+    "shared": {
+      "tradeTrust": {
+        "description": "TradeTrust – A digital utility that comprises a set of globally-accepted standards and frameworks that connects governments and businesses to a public blockchain to enable trusted interoperability and exchanges of electronic trade documents across digital platforms."
+      },
+      "openAttestation": {
+        "description": "OpenAttestation – An Open-Source Framework for Verifiable Credentials"
+      }
+    },
+    "page1": {
+      "header": "Verifiable Credentials for Cross-Border Trade and Other Use Cases: Proposed Contributions by Singapore Infocomm Media Development Authority and Singapore Government Technology Agency",
+      "contents": [
+        {
+          "subheader": "Current challenges of cross-border trade documents exchanges",
+          "bodyAsList": [
+            "Current cross-border trade documentation spans many documents and processes, and is a manual, time-consuming, and resource-intensive process for all stakeholders. The paper-based processes are still practiced today as there is currently no easy way to verify the accuracy and authenticity of the supporting trade documents via digital means. This results in inefficiency and delay as time required to process the paper-based documents for clearance may far exceed the actual time of physical movement of goods. According to a study",
+            " by McKinsey in 2022, documentation for a single shipment can require up to 50 sheets of paper that are exchanged with up to 30 different stakeholders."
+          ]
+        },
+        {
+          "subheader": "How does TradeTrust address these challenges",
+          "body": "To address these inefficiencies, we have developed TradeTrust. TradeTrust, which is built upon OpenAttestation framework, comprises globally accepted standards and frameworks that allow governments and businesses to issue, verify and effect title transfer of electronic documents across different digital platforms seamlessly. TradeTrust can help to protect the trustworthiness of digital documents using cryptography and decentralised identifier (DID) for the verification of their authenticities and their provenances."
+        },
+        {
+          "subheader": "What documents can TradeTrust support in their digitalisation",
+          "body": "As a framework, TradeTrust is designed and developed to support the digitalization of two categories of documents used in Cross-Border Trade and Trade Financing processes. The first category is known as the Verifiable Document where the integrity or the trustworthiness of the document can be verified. Examples of such documents include the Certificates of Origin, Commercial Invoices and Packing Lists etc. The second category is Transferable document (or document of title) where it confers title ownership to an asset and the ownership can be transferred from one party to another. Examples of such documents include the negotiable Bill of Lading, Bill of Exchange, Warehouse Receipts and Promissory Notes etc. An electronic Bill of Lading (eBL) that is issued using the TradeTrust framework can be transacted by various commercial stakeholders in a fully decentralised manner, eliminating the need for all parties to be on a common digital platform."
+        },
+        {
+          "subheader": "How are Selective Redaction and Decentralised Renderer functions used in TradeTrust and why are they useful",
+          "bodyAsList": [
+            "While TradeTrust facilitates the trusted exchange of digital documents across the different parties in cross-border trade processes, it is important to ensure that the holder of these documents have control over what information can be shared with other users. To support such flexibilities, TradeTrust adopts the",
+            " method and allows the holder of the digital trade document to redact information that are commercially sensitive (such as suppliers' or products' pricing) before sharing it with the next receiving party. TradeTrust also supports the concept of",
+            " of digital documents in order to allow the document issuers flexibility in designing the rendering functions according to their preference. The decentralised approach also helps to mitigate the risks of single point of failure (SPOF) when all documents rendering functions are consolidated under a common hardware infrastructure."
+          ],
+          "bolded": [" Selective Redaction", " Decentralised Renderer"]
+        }
+      ],
+      "footnote": "https://www.mckinsey.com/industries/travel-logistics-and-infrastructure/our-insights/the-multi-billion-dollar-paper-jam-unlocking-trade-by-digitalizing-documentation"
+    },
+    "page2": {
+      "contents": [
+        {
+          "subheader": "Introduction",
+          "body": "As the world moves away from paper documents and towards digital documents, it is important to ensure that digital documents are resistant to tampering and trust is preserved. OpenAttestation is an open-source framework developed by the Singapore Government Technology Agency to simplify the endorsement and verification of digital documents. In production since 2018, OpenAttestation has been implemented in various areas such as academic credentials, healthcare records, and cross-border trade."
+        },
+        {
+          "body": "The key features of OpenAttestation include:",
+          "listItems": [
+            {
+              "name": "Document integrity:",
+              "description": "OpenAttestation ensures that the content of the document has not been modified since the document’s creation, with the exception of data omitted using the built-in selective redaction mechanism."
+            },
+            {
+              "name": "Issuance status:",
+              "description": "OpenAttestation checks that the document has been issued and that its issuance status is in good standing, i.e. it has not been revoked, for example. Currently, OpenAttestation supports two ways to issue documents: Decentralised Identifier (DID) Signing and Blockchain Smart Contracts."
+            },
+            {
+              "name": "Issuance identity:",
+              "description": "OpenAttestation checks and returns the identity of the issuer primarily through the Domain Name System (DNS). It verifies that the issuing party in the document has provided some sort of proof that it is the same party as claimed by, for example, proving ownership over a domain by the ability to create a DNS record."
+            }
+          ]
+        },
+        {
+          "bodyAsList": [
+            "OpenAttestation has been listed in the",
+            " registry by the",
+            ". DPGA is a multistakeholder initiative supported by the Norwegian Agency for Development Cooperation (Norad), United Nations Development Programme (UNDP), and UNICEF."
+          ],
+          "links": [
+            {
+              "title": " Digital Public Goods",
+              "url": "https://digitalpublicgoods.net/registry/openattestation.html"
+            },
+            {
+              "title": " Digital Public Goods Alliance (DPGA)",
+              "url": "https://digitalpublicgoods.net/who-we-are/"
+            }
+          ]
+        },
+        {
+          "subheader": "Alignment with W3C Verifiable Credentials Data Model",
+          "bodyAsList": [
+            "OpenAttestation is aligned with the W3C Verifiable Credentials Data Model. As a framework with real-world implementation and production systems, our team hopes that OpenAttestation documents will be interoperable with other implementations of verifiable credentials and their related systems, including verifiers and wallets. We also hope to support greater adoption of verifiable credentials. To this end, we have recently launched OpenAttestation v4 [",
+            "] which improves on interoperability with the W3C Verifiable Credentials Data Model [",
+            "]."
+          ],
+          "links": [
+            {
+              "url": "https://go.gov.sg/oa-v4"
+            },
+            {
+              "url": "https://www.w3.org/TR/vc-data-model/"
+            }
+          ]
+        }
+      ]
+    },
+    "page3": {
+      "contents": [
+        {
+          "subheader": "Proposed Contributions to W3C Verifiable Credentials Working Group",
+          "body": "To improve interoperability and adoption, our team proposes the following contributions to the W3C Verifiable Credentials Working Group:"
+        },
+        {
+          "listItems": [
+            {
+              "name": "OpenAttestationMerkleProof2018 Signature Method for Selective Redaction",
+              "descriptionAsList": [
+                "Selective redaction is a desirable property of verifiable credentials. OpenAttestation implements a lossy progressive selective redaction scheme, which allows it to be used in applications where a verifiable credential is passed along a chain of multiple verifiers and where privacy and data minimisation techniques are desired and/or required.",
+                "This proof method can be understood as a “hash of hashes” in which each property of the credential is salted and hashed. The output hashes are sorted, stored in an array, and hashed again to derive the target hash, which is akin to a digital fingerprint of the credential. To redact a property in the OpenAttestation Verifiable Credential, the obfuscated data is replaced by its corresponding derivated hash. Obfuscation does not invalidate the proof property as the target hash is computed over all hashed key-value pairs in the credential, including obfuscated property hashes.",
+                "The Verifiable Credentials Data Model is proof format agnostic and does not normatively require any particular digital proof or signature format. As the OpenAttestationMerkleProof2018 Signature Method is being actively utilised by OpenAttestation implementations, our team believes that documenting the OpenAttestationMerkleProof2018 Signature Method as part of the Verifiable Credentials Data Model would be beneficial to implementers."
+              ]
+            },
+            {
+              "name": "Decentralised Renderer",
+              "descriptionAsList": [
+                "While the claims contained within verifiable credentials are machine-readable, they are not by default presented in a human-readable form. OpenAttestation implements a decentralised rendering protocol that presents the OpenAttestation verifiable credential in a human-readable format. Issuers create their own document schema and custom templates to render their OpenAttestation verifiable credentials. This decentralised renderer is publicly  hosted as an endpoint.",
+                "When verifiers verify the OpenAttestation verifiable credential online, the OpenAttestation viewer then loads the decentralised renderer and uses it to display the OpenAttestation verifiable credential. This protocol enables document issuers to style their documents without code change to the different implementation of the document viewer, while managing the size of the credential."
+              ]
+            },
+            {
+              "name": "Paper-Friendly Verifiable Credentials",
+              "description": "OpenAttestation enables paper-friendly verifiable credentials that are suitable for use cases with uneven technological maturity, such as long cross-border supply chains. OpenAttestation verifiable credentials can be issued with a QR code which, when scanned with QR code reader such as a mobile phone, will direct the viewer to the OpenAttestation document viewer and load the OpenAttestation verifiable credential using the decentralised renderer."
+            }
+          ]
+        }
+      ]
+    },
+    "page4": {
+      "contents": [
+        {
+          "subheader": "Use Cases",
+          "body": "OpenAttestation has numerous use cases across a variety of sectors:"
+        },
+        {
+          "listItems": [
+            {
+              "name": "TradeTrust",
+              "description": " builds upon the OpenAttestation framework to verify the authenticity and source of trade documents and for performing title ownership transfers of electronic transferable records."
+            },
+            {
+              "name": "OpenCerts",
+              "description": " leverages the OpenAttestation framework to provide a convenient way for educational institutions to issue academic certificates, and for students to share their qualifications with prospective employers. It is used by all major post-secondary education institutions in Singapore."
+            },
+            {
+              "name": "HealthCerts",
+              "descriptionAsList": [
+                "During the COVID-19 pandemic, OpenAttestation was used to issue tamper-proof pre-departure test and vaccination certificates (“",
+                "”) for cross-border travel."
+              ]
+            },
+            {
+              "name": "ACRA",
+              "description": "Singapore’s Accounting and Corporate Regulatory Authority uses OpenAttestation to Issue Official Business Profiles and Certificates to registered companies."
+            },
+            {
+              "name": "ICA",
+              "description": "Singapore’s Immigrations and Checkpoints Authority uses OpenAttestation to issue long-term visitor visas."
+            },
+            {
+              "name": "EVs",
+              "description": "Start-ups have used OpenAttestation to issue transaction information about electric vehicle charging and carbon credits."
+            }
+          ],
+          "links": [
+            {
+              "title": "TradeTrust",
+              "url": "https://www.tradetrust.io/"
+            },
+            {
+              "title": "OpenCerts",
+              "url": "https://www.opencerts.io/"
+            },
+            {
+              "title": "HealthCerts",
+              "url": "https://www.healthcerts.gov.sg/"
+            }
+          ]
+        }
+      ],
+      "footer": {
+        "qrUrl": "https://tradetrust.io/?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fgallery.openattestation.com%2Fstatic%2Fdocuments%2Fw3c-brochure.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Ftradetrust.io%22%2C%22chainId%22:1%7D%7D",
+        "qrPrompt": "Scan here to view a verified digital copy of this brochure",
+        "links": [
+          {
+            "prompt": "For more Info, please visit:",
+            "urls": ["www.tradetrust.io", "www.openattestation.com"]
+          },
+          {
+            "prompt": "Contact us at:",
+            "urls": [
+              "tradetrust@imda.gov.sg",
+              "openattestation_support@tech.gov.sg"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "proof": {
+    "type": "OpenAttestationMerkleProofSignature2018",
+    "proofPurpose": "assertionMethod",
+    "targetHash": "bf965762ac9cd1509f0cf84ead759e3b863e4bcae2c9957ead3225f981481e5b",
+    "proofs": [],
+    "merkleRoot": "bf965762ac9cd1509f0cf84ead759e3b863e4bcae2c9957ead3225f981481e5b",
+    "salts": "W3sidmFsdWUiOiIyN2E0NTg3MDcxZjUxNjEyZWZhOTU1ZTIxYmVkZjM2ODNkMTcxNmE2NjJlYTAzYmUyYTRlYWM3NTY0NWE4ODEyIiwicGF0aCI6IkBjb250ZXh0WzBdIn0seyJ2YWx1ZSI6ImM3YmQ1ZGUzZGFkZGNiMjkxNDIxNTI1NTNlNWNkYTkyM2IwZjU1YmQ0ODczNTU0YTJhMGUzYTZlNzE5MzJhZDkiLCJwYXRoIjoiQGNvbnRleHRbMV0ifSx7InZhbHVlIjoiNGY5ZDQzODg0NjM2NjU3ZTIwNTkwY2Y3NzI0OTgyNzI3NmZiYTA3ODM0NmU2ZTJjMmNiZmM0MGQzNGM5MDVjMyIsInBhdGgiOiJ0eXBlWzBdIn0seyJ2YWx1ZSI6ImM0YjdhYTI3ZmQ2Y2RjYTI0MTBkYTcwYzg4YWQ3NmVjZTU1YmNiZWQ3OTFjMDBkYjc4OWM2M2Y0YjcyMzUzMjYiLCJwYXRoIjoidHlwZVsxXSJ9LHsidmFsdWUiOiJmOGM0MjBkNDI3ZjkyZjMzYmVlMGE0NzMyZDBiZGQ2NDIyNTY5OTVmYmM3YWYwNDg0NTk0MGU3YjA2NWNhYjIwIiwicGF0aCI6InZhbGlkRnJvbSJ9LHsidmFsdWUiOiIwMGY2MjVkZGFiY2IwZjU5YjJjZTMzYWJjNDI0Yjk1ZmQxN2RhZGY5YTNlN2RhMmZlMjBjOTIyYTQ4MzYzYzgwIiwicGF0aCI6Im5hbWUifSx7InZhbHVlIjoiNTRhNTYwNzRmODEzZGQzYmMxN2VmZThmZjMzNTVlMzFmOTcyNzAwN2ZlZmMxNmJiZjdhNTg2YTgzMGJlNjRkNSIsInBhdGgiOiJpc3N1ZXIuaWQifSx7InZhbHVlIjoiMTRkYTdiZWQzZGQ3OTBhYjE0YjgyOWUxNzZmZDg4NzlmMGYzMjZjMTc5NGFmYjJmYTJhMGM0N2ZkYmI1M2U2ZCIsInBhdGgiOiJpc3N1ZXIudHlwZSJ9LHsidmFsdWUiOiI5MzEzMmFiNmMxNmY5NzY1Y2JlMTU4YzlmODQ0YzZlOTRkMzJlMmUzODNhYzZmYTliZTZlN2U5ZWIxNjNiYjY4IiwicGF0aCI6Imlzc3Vlci5uYW1lIn0seyJ2YWx1ZSI6ImRiN2QwODkwZDgwYmI4ZDJkMjAzZTc0NzVmYWE4OTdhOWVlOWZkYzQ2ZGVmMjY0MDliODY1N2Y0Y2E2NDA0ZDkiLCJwYXRoIjoiaXNzdWVyLmlkZW50aXR5UHJvb2YuaWRlbnRpdHlQcm9vZlR5cGUifSx7InZhbHVlIjoiMDA1NWJhZDhkOGI2OWFiNTkwYmFlOTVlZDA0MDllMjc0OTE2Yzk0ZDdlOGI4M2ZiZThmYmEyZTE1Mzg5OWFjYiIsInBhdGgiOiJpc3N1ZXIuaWRlbnRpdHlQcm9vZi5pZGVudGlmaWVyIn0seyJ2YWx1ZSI6ImQxOTI3YzcxNWUyYzgyZmYwYjZmZTMxNGY4NWNiZWRmYjZmM2NkYzM3ODE5Nzg2M2NlYTlhY2U4YjNlMDRjMWEiLCJwYXRoIjoiY3JlZGVudGlhbFN0YXR1cy50eXBlIn0seyJ2YWx1ZSI6IjFmYmNjNDM1ZTM0ZDgwNTg4MGE1NTAwOGEzYTMyZDE5MTk3NDkwZGI5M2Y5NTFiZGFmYWRjMzAxYzEyNDE4MjkiLCJwYXRoIjoiY3JlZGVudGlhbFN0YXR1cy5jcmVkZW50aWFsU3RhdHVzVHlwZSJ9LHsidmFsdWUiOiJhNjYyMjU0ZWEyY2IzMTEwODk3OTRjYzY3MzFhZjY2YmZmYjkwZDUzZWQzNzQ2NzE2Zjk3Y2Y2MTEyMWUxYTcwIiwicGF0aCI6InJlbmRlck1ldGhvZC50eXBlIn0seyJ2YWx1ZSI6IjA2Yzc2YmE5ZjYzYjRmOTAxYzY1NWI0NmYyMzhiNTI0ODIzYWI3Zjg0NDU2ODEzNjAxNmNjNjBmOWU1NWEyY2YiLCJwYXRoIjoicmVuZGVyTWV0aG9kLnJlbmRlck1ldGhvZFR5cGUifSx7InZhbHVlIjoiY2I1NjZlMjIxYTkwODFkYjVhNmMyODNiYmVlMDc3ODM3Yzc1MDdkYmY3Y2E4Y2IxMjE5OWE2NDIzYTQxYWFlOCIsInBhdGgiOiJyZW5kZXJNZXRob2QubmFtZSJ9LHsidmFsdWUiOiJmMmY2YjQ1YmZiZmViNzhmYzM3NzY5M2I3N2M0NWVhODc5NjFhODkzZWYzZDZkZjdhNmFhNzNlYmQ0YmZlOTE4IiwicGF0aCI6InJlbmRlck1ldGhvZC51cmwifSx7InZhbHVlIjoiYTI0MGZmZGMwMjhjNGY3YThmYjYwZWY1YjEyNGE5MzgwYjlmNDFkNTEyNDYzMjQwYmY1NmZhNTlkYTVjYzRjMiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5zaGFyZWQudHJhZGVUcnVzdC5kZXNjcmlwdGlvbiJ9LHsidmFsdWUiOiI4ZDc0MTgxMjRhOGVmNDczYzM3M2FlMjQ3YTAwYTE3NTFjZjE0Yjg2NTc1YTMzMDA4YjE5ZjE0OWFiMWM3MDBhIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnNoYXJlZC5vcGVuQXR0ZXN0YXRpb24uZGVzY3JpcHRpb24ifSx7InZhbHVlIjoiNWY2ZDEyMTQxOTA1ZGJlOWU3YjU5ZTE1Y2M4NDEwN2I5MzFhYTE3N2Y5NTYyYzEwMGUzYWUxMTlmMjJhMGZhMCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMS5oZWFkZXIifSx7InZhbHVlIjoiZmVkNjY3NTZlZjdhNjQ2ODBhZmE3NjFlZDc5MTY3NDQ1ODY0MDczMjE3ZTBjMmU5NDQ3NWVmNmM4OTRkNjJlNiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMS5jb250ZW50c1swXS5zdWJoZWFkZXIifSx7InZhbHVlIjoiZTAzOTI2ZjE2ZDBlNDY0MjBhMDQ0MjUzN2M4YTQ2YTA0MDFkOGFjMDY0OTA4NjI0NTUyYzZhZDEzNjI2N2VhMSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMS5jb250ZW50c1swXS5ib2R5QXNMaXN0WzBdIn0seyJ2YWx1ZSI6Ijg4M2UwMzBiMmQ3MWNmZjllYzQ1YjIxMTM5MzA2MDgxOTdlMzIzNjNhMmE4NzY5NjQ0ZmZiZjU2NDEyODY3N2IiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTEuY29udGVudHNbMF0uYm9keUFzTGlzdFsxXSJ9LHsidmFsdWUiOiI1YWVlNDY5ZjRjOGM0OTc3MzUyYTI3YzgwNzk0MDc2ZmFmMjc1ZGExNTliYzFkMmYyZDE3YzA2MTA4MTJjMjZkIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UxLmNvbnRlbnRzWzFdLnN1YmhlYWRlciJ9LHsidmFsdWUiOiI1NTQ1YWE1YTU5OWUzMGYyYmM0ODhhMzM5OGRhYzQxNWE1OGQxODE5NmQxMDE5NmMxMGMwNzliMWRjNzIwZDU2IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UxLmNvbnRlbnRzWzFdLmJvZHkifSx7InZhbHVlIjoiNDcwODllYjE2ZWRhMmZhNWM4NjE5MGJkYTcxY2MwZmI5YzNkMzdhY2IwOTZjOWZiY2VmYTgwNjMzYjY5ZjVmOCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMS5jb250ZW50c1syXS5zdWJoZWFkZXIifSx7InZhbHVlIjoiYjBkODM4YTUwMzM1YmY4NmM3Y2VkMjk0ZTZmMTQ4Y2Q3ODZjZTJlZDRhZWJjZTk2N2U2MWUzMzVjYzdmN2YyOSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMS5jb250ZW50c1syXS5ib2R5In0seyJ2YWx1ZSI6IjEyYzU4YWFhODUyYWE3YTBmOGIxZDI1OTQxZWYzMTQwMTNhZDRmNTgyMGJlMmM5MTlhNzJlMDc5YTdmZTdkNTkiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTEuY29udGVudHNbM10uc3ViaGVhZGVyIn0seyJ2YWx1ZSI6IjEzNWNjYzlhMDM3NjUwZjk3NWM4YjUyMjU5ZjVmNjEwMDg4MDMyMjA1OTEyZmQ0MTQ2MjdiMzkyNGZkNGY3YjgiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTEuY29udGVudHNbM10uYm9keUFzTGlzdFswXSJ9LHsidmFsdWUiOiIyZTVhNWZlNzY4MjU4OWMxNDU2ZmZmYmU4Y2Q0ZDNmNjBiZmMzMWU0ZTU3MDU0MTQzMmRiN2U2MzAyMTJhZTU3IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UxLmNvbnRlbnRzWzNdLmJvZHlBc0xpc3RbMV0ifSx7InZhbHVlIjoiMzMzMDY1M2QzNjk5MjNkMTg3M2ZkNjZiMWU2NmFlNDk4NzQ2M2NjMTMwNDY3YzA2ZTAyZjhjMGUyYmRjNGEwMiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMS5jb250ZW50c1szXS5ib2R5QXNMaXN0WzJdIn0seyJ2YWx1ZSI6Ijg3NWJmMWUyYTczMGQyOTM3ODg4ZmFiNzg5YTFmZWQ0NGZjYmRkM2ZjYzY2YjRkZDVjMWQwYWRlZDgxMDQ3NzAiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTEuY29udGVudHNbM10uYm9sZGVkWzBdIn0seyJ2YWx1ZSI6Ijc5MjBlZWRlOGFiYjJmZmFlMWEwOTgwYmExMzFjNzYwYTNhZGQ2MzM1M2VmYmQzOWVjZWVlZTgyMTk0ZGY2MjQiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTEuY29udGVudHNbM10uYm9sZGVkWzFdIn0seyJ2YWx1ZSI6Ijk5MjBkNzI1Y2M0YzE1MmJkOTRhNmFiMTYzNjI0OTdkMjI4ODdjNjU4YWRiMDdiOTg2ZjQzZjdmOWM5ZDA4ZDkiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTEuZm9vdG5vdGUifSx7InZhbHVlIjoiYzk1OWQzMDg1YWU5OTEyMWVlNjEzNWZlOGQ2YTgyOTVjZDgyMmY5MWExMThlODlkYjU4OGU2Y2EzMmIzMDM5YSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1swXS5zdWJoZWFkZXIifSx7InZhbHVlIjoiYmNhMzhlZTg0YWVkMmM3YWU3ODZjMDcyMjlhNzRkMzgwNmI2NzEyMDlmMGYzMmRkY2ExNTIwZGQ0NWViNzFlMSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1swXS5ib2R5In0seyJ2YWx1ZSI6Ijk2NzAzOWNlNGMwNTBjYmYwYzBlMWZkYjFjZmU1YjYyMTA3NjM4ZmVmNDJlZDMxODE1MTZjOTVhNTE2Mzc0MTQiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbMV0uYm9keSJ9LHsidmFsdWUiOiIwNmRmZDA1N2Y3ODM1ZWMyODUyZDQ5NWU0ZGFmYTUxODYyODdmYjY4NzI0ZTgxZDllMTM0NGJmMTI5MjUxZWY0IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UyLmNvbnRlbnRzWzFdLmxpc3RJdGVtc1swXS5uYW1lIn0seyJ2YWx1ZSI6ImZjMzFlN2UyMGZlNjZiN2YzZmY0OWI3NzFkMjRmN2JmOWUxZmY5MGFkMjJiZTE2MzBmM2JiMDYwZWMzMjM4NjQiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbMV0ubGlzdEl0ZW1zWzBdLmRlc2NyaXB0aW9uIn0seyJ2YWx1ZSI6IjM0NzNjOTA0ODg2NTdhNDE5OTE0NGExZTAzZjU2YThhYjc2YTYxOTNmYjFiYjM1ZTM2ZTRmMDMzZTdhYjkwYTMiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbMV0ubGlzdEl0ZW1zWzFdLm5hbWUifSx7InZhbHVlIjoiZGVlNmE5OTA3MzNmZWQ4YmI5YWQyMTUzNjFhNTllYmUzZmM5NjQwOWU2ZjRiZGI0OTFhYTA2YTI4NTBmOTc2NiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1sxXS5saXN0SXRlbXNbMV0uZGVzY3JpcHRpb24ifSx7InZhbHVlIjoiNTU0Y2ZmNjhlY2FkZDcyMGFiYjE3MjA4YmQzMmMzYmI2ZTYwMmRkYzc4OGJmNWQzOGRlN2YyNTgxYTA4MmQ2NyIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1sxXS5saXN0SXRlbXNbMl0ubmFtZSJ9LHsidmFsdWUiOiIzZThiZjhlY2EzZGZmNmM4ZGUzNTFiNTJlODJhNWFmM2UxZDhjNWRhZTcyYzg3OWVjMGEzM2JhYjllMTdhNTFjIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UyLmNvbnRlbnRzWzFdLmxpc3RJdGVtc1syXS5kZXNjcmlwdGlvbiJ9LHsidmFsdWUiOiJmOGU0ZTYyZTYxMTMyYWU0YTA5ZjUzODkxNzY0OTYzNTc2YWJjYWJkNDI4OTY1Nzc2ZWEzZGY3YzllYThhYjE1IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UyLmNvbnRlbnRzWzJdLmJvZHlBc0xpc3RbMF0ifSx7InZhbHVlIjoiZTZiZjI3NWU4MzBlNjU5YmJkY2U2MDE3MGUxZjA5YjI5NTcwNTQ1NjdkNTE0MjhlOTY0OTlhNDBjYWI1YjRmZSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1syXS5ib2R5QXNMaXN0WzFdIn0seyJ2YWx1ZSI6IjJmY2NjYTI3NTQxMzJkZTQ5ODUzNzdhMTk3MmVkYTFkNDE5N2NkNDYwMWI4MTBlNmQxZjFkMWJmZDVhMmNmZTUiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbMl0uYm9keUFzTGlzdFsyXSJ9LHsidmFsdWUiOiI2ZGE2ODFiOTFiYjMxZmI2MGQxOTAyMDc3YTU2Njg3NjJlYThmMTE1NGIzNzY3YmI0NmI5Yzc2NWUwYmE3ZTczIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UyLmNvbnRlbnRzWzJdLmxpbmtzWzBdLnRpdGxlIn0seyJ2YWx1ZSI6IjA5YzkxNTVjZjEyNDMwMWY3OGZjYWNlZjExZGY0NjAzMWE3Mjg4MWQ2OGZlMjNhOTAyNDY0Mzg1ZDQyNWQzZGMiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbMl0ubGlua3NbMF0udXJsIn0seyJ2YWx1ZSI6IjRiZDJkZTg2MGM2NjEyYWI0NjZkYTg3ZTVmOTBhN2RmYTQ5MjEwOGI5Y2ZlMDAxZDJhYTkxNjFmMmJiMTFkZWIiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbMl0ubGlua3NbMV0udGl0bGUifSx7InZhbHVlIjoiM2QzNDk4MjBlN2YxMDNmNGI5NGZhOGIxMjE3NTRjNWE3MDUwODQ5NzEzNTA4NjczYTNlOTJkYjI4OTIxZDg0NCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1syXS5saW5rc1sxXS51cmwifSx7InZhbHVlIjoiMjRhOTVlYjI4NzQwYWI2YWU4MzU2ODgzYWZhZDg3OTE2YjhjZWQ4NjlkY2YwMWQ3ZGM4ZGFjMTEzZDI2NzgyOSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1szXS5zdWJoZWFkZXIifSx7InZhbHVlIjoiNDFkYTY0MTA0MDY2MDdhNGU2Y2E0Y2JiMjlhNmMzNTRhMWE0MTkwODdkNWVkODU3ZGE2NTc4Mjc2YzVlZGVhZiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1szXS5ib2R5QXNMaXN0WzBdIn0seyJ2YWx1ZSI6ImY2YTY1YmI5NmM0MzJjYmVhNGQ0NmRiOTFiODVkNGVlNjYzNjE0Mjc5ZGI2YTQ1OTExZDVjY2E0NzViODBkY2QiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTIuY29udGVudHNbM10uYm9keUFzTGlzdFsxXSJ9LHsidmFsdWUiOiJmMGJjMmM1NTFjYzllOTZlMzViNmZkNmJhODMyY2ExZjYyN2ZmNTgyY2U5MzkzM2EzNGIyMjVhNjY2MTkzMzdkIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UyLmNvbnRlbnRzWzNdLmJvZHlBc0xpc3RbMl0ifSx7InZhbHVlIjoiOWMzNTYzMGZlOTkyZjhjMWIxZTFlM2VkNDkxOGFhOWFkODk5Y2E2Y2YxMDI4YWNmYTkxNzI2YjhmN2I1ODZkOCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1szXS5saW5rc1swXS51cmwifSx7InZhbHVlIjoiOTgzN2Q5YjFjMmM2OTUyMDk3MjZlMmNhNTdlOTY4OWIyNjRlODFkMDRkNzk3YjNhNzZhNGQwNjBiYzRiMTBmMSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMi5jb250ZW50c1szXS5saW5rc1sxXS51cmwifSx7InZhbHVlIjoiNjIzZjllMmMwODc1Zjg4MzNlOTY5NGJkODJjOTYyMDgzYWQxNmEwZGFlMTA2ZjBlODRkZDA5Y2ZhOTU2YjkyYiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMy5jb250ZW50c1swXS5zdWJoZWFkZXIifSx7InZhbHVlIjoiOWEyM2YwYjlmYzY3MzE2MjUwYTM0YzhiMzIyZWE2MDUzMDc5NmYwYmRhYjk2NDUxOTU5YjEzYWIyZTZjZjcyNiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMy5jb250ZW50c1swXS5ib2R5In0seyJ2YWx1ZSI6IjFkOTU3NDAyNmJhYTBmZTJkNDJhMTNmYWExNzFlNjc4ZjRhNmE2ZDRlODVkMjU1YTZmODA4M2ZmNGRlMjcwZDAiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTMuY29udGVudHNbMV0ubGlzdEl0ZW1zWzBdLm5hbWUifSx7InZhbHVlIjoiMzdjNWQwMzc2N2ZkY2UyMzE0MDgwMWYzMDQxMmUxNmFlNzc1NWVkYzQxZjA0OWJmYTBiZTI4ZGE0NzI3YzgyNSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMy5jb250ZW50c1sxXS5saXN0SXRlbXNbMF0uZGVzY3JpcHRpb25Bc0xpc3RbMF0ifSx7InZhbHVlIjoiYmI1ZDY1ODlkMmIwNDJkMDc2MTI5NGVjYTgxYzc3Mjc5NDFjZTgxYzllOGU5YjJmNzIwMzVmNjRiOGIzNmNkYyIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMy5jb250ZW50c1sxXS5saXN0SXRlbXNbMF0uZGVzY3JpcHRpb25Bc0xpc3RbMV0ifSx7InZhbHVlIjoiMWVhYTI5YzA5YjAyOGZlNjViYzAxNTE2NTZkM2FjNGU3ZTQzMjNhNmM3ZWViNDVmYTIwODk2NjE4MmUzM2NhZiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMy5jb250ZW50c1sxXS5saXN0SXRlbXNbMF0uZGVzY3JpcHRpb25Bc0xpc3RbMl0ifSx7InZhbHVlIjoiY2QxNmQ5ZDAzYTliOWVjNDJlYzE1ZDRiOTg4YTdlMTQ4MjQ3OTMxYTAwNGJlN2E4NTMxYTllN2JhOTljNGNkMCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlMy5jb250ZW50c1sxXS5saXN0SXRlbXNbMV0ubmFtZSJ9LHsidmFsdWUiOiI0MjIwNjNkNDNhZDk3NTkyZTYyZWU5Yjk1YzNmNzk4MDA0ZmRjZmJhZDc1MjhkNzUyNjAyODk0MDk2ZDMxNjExIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UzLmNvbnRlbnRzWzFdLmxpc3RJdGVtc1sxXS5kZXNjcmlwdGlvbkFzTGlzdFswXSJ9LHsidmFsdWUiOiI5ZDJmM2RkNDI2NDc4ZjJhN2Y0ZTlmMzE3YWYzZTJmN2IyNWI3ZDA2ODZkN2MyYjBlNGMyMDhmMTBiZDg5NjY0IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UzLmNvbnRlbnRzWzFdLmxpc3RJdGVtc1sxXS5kZXNjcmlwdGlvbkFzTGlzdFsxXSJ9LHsidmFsdWUiOiJjMDNhYTc1MDEzNDJiNTYyY2E3NzNjNDY4MzY1MTkxMTRlZTA3Y2ExMjk0YjM5OWEyZmJiNTYyYzI1NDg1ZTRmIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2UzLmNvbnRlbnRzWzFdLmxpc3RJdGVtc1syXS5uYW1lIn0seyJ2YWx1ZSI6IjZjMGVhMTZlODNjYmE2MTEyODBkNzcwYzQ2YWNkZTgxNTdhYmZiMjNkM2U4NmYwYzUzMzFjZDUzNjc0NzM0YjAiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTMuY29udGVudHNbMV0ubGlzdEl0ZW1zWzJdLmRlc2NyaXB0aW9uIn0seyJ2YWx1ZSI6IjY0YjM2OGJjZjJhYzY5MDc5YjVjYjRkNzBhODAxZmY0NGVmZGZlMjkxYWRkZjFiNzFiYjE3NWFmYjc2NmIxYWYiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMF0uc3ViaGVhZGVyIn0seyJ2YWx1ZSI6Ijg0MzczMjE0ODRmMWE5ZjdmYmUxY2I4ODAyMzRlODA2MjhlYjRhMzQ1Yjc1ZWE3MzIwZDIzODM1MTYwY2JkNmYiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMF0uYm9keSJ9LHsidmFsdWUiOiJlYWE1YmE4ZmNlNzc3MjAwZGU3N2EwMmM3ZDBkNTBmODU4ZDEwODc3YWI4ZmFiNmQ5Y2NhYzA5YTdiY2Q3MWM5IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpc3RJdGVtc1swXS5uYW1lIn0seyJ2YWx1ZSI6IjJkMGVmMTJmYjljNmQ4ZGJmMGM4OWRhZWFiNzc0M2QzYmUzNDFiNWQ3NjkwN2RhZmQ1Y2VmOTA4NjU5NTRlZWQiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMV0ubGlzdEl0ZW1zWzBdLmRlc2NyaXB0aW9uIn0seyJ2YWx1ZSI6IjcxMmRhNDAxMTk0YzE2MmYzZDIyYTM3YTg1ZTlmY2MxOGY2YjNhNjA4NGNjOTRhZmI4MWUxMmY5Mzg2OWYwYTIiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMV0ubGlzdEl0ZW1zWzFdLm5hbWUifSx7InZhbHVlIjoiNDJhNDNiZTI2ZTJmOTFiMGNjOTU5YzM0NjA5NTVjZDFiM2ZkZTdkNTNjNjYzY2U1NTNmZDhhN2Y5NGIwYTMzNiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5jb250ZW50c1sxXS5saXN0SXRlbXNbMV0uZGVzY3JpcHRpb24ifSx7InZhbHVlIjoiYWExNmRlYjk3NjBhMDQxMTJhZDE0ZDRiYzRhZTI3MjMzMDEzNjIxNGIwMWRiNjc5YmMwYTI1YzcxYzFkNjZiNyIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5jb250ZW50c1sxXS5saXN0SXRlbXNbMl0ubmFtZSJ9LHsidmFsdWUiOiI3ODJiYzU2N2RjZDEyMDVhMjc0NmYyZWJkNjY3NGY0MzkyZmY3NzJhOGNiYmM2YTE3OTE1MGVmZTlkZDNjNWZiIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpc3RJdGVtc1syXS5kZXNjcmlwdGlvbkFzTGlzdFswXSJ9LHsidmFsdWUiOiI3MGQyNDBhOWM3Yzk5ZDA2YWI5ZTVlZTNkNmJjZDU4ODJmMGEwNjA5OThiNmIyMjQ2N2Y3NGI4ODk1ZmZjYWY4IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpc3RJdGVtc1syXS5kZXNjcmlwdGlvbkFzTGlzdFsxXSJ9LHsidmFsdWUiOiIxNDRkOGZhZDNiNDA0OTE0MjdjNTU2YjIzYjg5N2UyZDkxMTJhNTRiOTc5Y2FlYmU1NGZiMWVhOTA0MjU3NTk1IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpc3RJdGVtc1szXS5uYW1lIn0seyJ2YWx1ZSI6ImNiZmUwYzEwZWIzY2QwNzJiNGNhMjlkNTg5MjAwNTYxNjUyNmM1N2QwZDI0MDBkYjgxODBjZmM3OGVjOWRmNzMiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMV0ubGlzdEl0ZW1zWzNdLmRlc2NyaXB0aW9uIn0seyJ2YWx1ZSI6IjRkYWQxMTJkZjg3ZjFjYzdlNzkwOGM5ZDkyNTQwZWMyNDA5NTUzZTNkNzRiYTA0NjNiMTY5N2FhMmIzNDA3ZTAiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMV0ubGlzdEl0ZW1zWzRdLm5hbWUifSx7InZhbHVlIjoiOWU0OWQ4MmE2YWExMTc2NjM1NjAyZGRjYjUzMzEwYTA0YTM2MTAzMWU1OGI3ZGY2N2NlNjhiOGYwNjUzMzhmMyIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5jb250ZW50c1sxXS5saXN0SXRlbXNbNF0uZGVzY3JpcHRpb24ifSx7InZhbHVlIjoiODVlZjdkMmNlNzZmZTdmMzEwZjkwM2M4OTA3MmM5MzVhOGIzZjM3NzVjNTE5N2JkNmM5ZWYyYmYxMzAyNjJkOSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5jb250ZW50c1sxXS5saXN0SXRlbXNbNV0ubmFtZSJ9LHsidmFsdWUiOiI5ZGMzNjI4NTE5N2ExODhmMWYyOTdkYjE4MGZlYjlhMDNkOTkxOGRhNjNjMzEwMTBlN2FhYWIxY2QyMTBiNDMzIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpc3RJdGVtc1s1XS5kZXNjcmlwdGlvbiJ9LHsidmFsdWUiOiI1NmViZTY5YjM4MDAyYzllNjc2MTM5MjI4NWViZGUyNzkwMTM0NDc0YTdkN2EzYTRiZDFiYWJhMzMxNWQ0ZmQyIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpbmtzWzBdLnRpdGxlIn0seyJ2YWx1ZSI6ImEwNTY1ZDJiZDNiYTViNGNjNzc1MTUzMWIzYjk4YzU0ZmRjYTRhM2M0YmQ2NWRhZjNjMDc1NmEyN2MzZWM0YzEiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMV0ubGlua3NbMF0udXJsIn0seyJ2YWx1ZSI6Ijc3MDYwMWIyODQyNDlmMmQxZjI2ZTRjYWEwZWQxNTM1NmUxN2U0NzAzYTA5MGNjNzAxYjMzMjY3OTkwNmYyYjYiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuY29udGVudHNbMV0ubGlua3NbMV0udGl0bGUifSx7InZhbHVlIjoiYjM0MzExMTM4ZGI4M2VmOTVjZWUwZDFiZDlmNWMzODc3ZWE1Y2FiZTg4ODQ0ODdiYjhjN2M4MmUyN2M1ZGI4ZCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5jb250ZW50c1sxXS5saW5rc1sxXS51cmwifSx7InZhbHVlIjoiMjFjZjcxZTZiYzVlMDgzODNmNmE1ZDZlOWJmMDk2NzY2NmVmNzBlYzlkOTliZTJkMmRjNjU5MzZkYzQ3ZjdiZiIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5jb250ZW50c1sxXS5saW5rc1syXS50aXRsZSJ9LHsidmFsdWUiOiIyMmU1NzQzZmIzOWVmNmRlYWY1NmVjNTkxNzNiNzQ0ZmM0ZWQwYzc3ZmJhNTliNGUwZWRjMzY2ZWIzMTgwMzZiIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmNvbnRlbnRzWzFdLmxpbmtzWzJdLnVybCJ9LHsidmFsdWUiOiJkYWU4NmRkMmMyMmIzOTE3MDhmOTUyOGRhMjZjMGM1N2YwOTE2ZjU1YjQ2YjMzODhhZTE3M2EzZDYzMWQ2YjAxIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmZvb3Rlci5xclVybCJ9LHsidmFsdWUiOiI4MGE5ZGZjMzFhYTkwNmY1MTNjZDgzZGNhM2Y2ZTkzNjVmNjE5NTQ4ZjJkOWJmODg0NzZmNWI0OGYzZmJkZTFkIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmZvb3Rlci5xclByb21wdCJ9LHsidmFsdWUiOiI0OGU2MDQwZDdiN2IyMTc1ZTliNmQzMzc0YTVhMzU3ZjA4OGRhNmI3MzkxMTUxOWZhZTE1NTE3MmUxM2IzYWRhIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmZvb3Rlci5saW5rc1swXS5wcm9tcHQifSx7InZhbHVlIjoiZDU1MjExNDBjZjI4NTJmMjA3NTZiMjJkNTI4NjlhNjliNjExNDlmODgxYzVjNDg0MTA3ZDRkODBhNzg0ZDE5ZCIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5wYWdlNC5mb290ZXIubGlua3NbMF0udXJsc1swXSJ9LHsidmFsdWUiOiIxMGI1YTVlYmMxNzUwNzcwMWQ4OWVlMTQ1YzFjYTY3OWQ0NTRiMjI1MDg5NTZlMDY3MzRmNmNlOGU3NGJmOTZlIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmZvb3Rlci5saW5rc1swXS51cmxzWzFdIn0seyJ2YWx1ZSI6ImQ4MjZhYTY3ODAwNDU2NDQ2NjZhY2QzNGYyMzE2NjFmNjI0ZTI5MTU0MGY2MWUxZGI3ZTIyNzEzMjhjNWY3MDgiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuZm9vdGVyLmxpbmtzWzFdLnByb21wdCJ9LHsidmFsdWUiOiJjMzllNzI3NWQ3OGU0NmM0OTA4MzA5Y2FiYjFkMGI2YWJjMDZmNDM2M2M2Yjc1NDY5NmM2ZTMwNjNmYWY1ZjJjIiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LnBhZ2U0LmZvb3Rlci5saW5rc1sxXS51cmxzWzBdIn0seyJ2YWx1ZSI6ImEwNTA4MjgzZmUwZmNiNzg3ZDJiZjFkMWUzOGI0NjNiNjkyODMzNWQ5ZGZkZDUwMjQ3ZmM0ZmM4MzY5NjM2OWUiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QucGFnZTQuZm9vdGVyLmxpbmtzWzFdLnVybHNbMV0ifV0=",
+    "privacy": {
+      "obfuscated": []
+    },
+    "key": "did:ethr:0xe93502ce1A52C1c0e99A2eB6666263EA53dB0a5e#controller",
+    "signature": "0xc1b4c2cf40f3e5fa46a21988dd152a4ec229b33835c3683ebd966aff4cf2c8f00fbfd0509db31da8438cc3426bca1935006c018a957ebaef185d7d3f4f69a3501b"
+  }
+}

@@ -1,14 +1,3 @@
-import { v3 } from "@govtechsg/open-attestation";
-
-export enum IDENTITY_VC_TYPE {
-  NDI = "NDI", // NDI's corporate VC
-}
-
-export interface IdentityVC {
-  type: IDENTITY_VC_TYPE;
-  embeddedVC: any;
-}
-
-export type TradexDocument = v3.OpenAttestationDocument & {
-  identityVC: IdentityVC;
-};
+import { TTv4, OpenAttestationDocument  } from "@tradetrust/open-attestation";
+export type TradexDocument = OpenAttestationDocument;
+export type IdentityVC = TTv4.CredentialSubject;

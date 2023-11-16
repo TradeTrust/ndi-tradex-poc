@@ -1,14 +1,25 @@
 import { FunctionComponent } from "react";
-import { IdentityVC } from "../../types";
+import { TradexDocument } from "../../types";
+import get from "lodash.get";
 
 interface CorporateVCProps {
-  identityVC: IdentityVC;
+  document: TradexDocument;
 }
 
+const fallback = {
+  companyname: "XYZ",
+  uen: "123",
+  id: "abc",
+};
+
 export const CorporateVC: FunctionComponent<CorporateVCProps> = ({
-  identityVC,
+  document,
 }) => {
-  const { companyname, uen, id } = identityVC.embeddedVC.credentialSubject;
+  const { companyname, uen, id } = get(
+    document,
+    "issuer.identityProof.identityVC.data.credentialSubject",
+    fallback
+  );
 
   return (
     <div className="mb-8">
@@ -18,8 +29,8 @@ export const CorporateVC: FunctionComponent<CorporateVCProps> = ({
       <div className="mb-4">
         <h4 className="text-black font-semibold">Issued by:</h4>
         <h4 className="text-cerulean-500">{companyname}</h4>
-        <p className="text-gray-500">{id}</p>
         <p className="text-gray-500">UEN: {uen}</p>
+        <p className="text-gray-500">{id}</p>
       </div>
       <div>
         <h4 className="text-black font-semibold">Identity verified by:</h4>
