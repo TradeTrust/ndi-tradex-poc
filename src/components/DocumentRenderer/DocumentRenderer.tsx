@@ -4,7 +4,7 @@ import {
   renderDocument,
   FrameActions,
   HostActionsHandler,
-} from "@govtechsg/decentralized-renderer-react-components";
+} from "@tradetrust/decentralized-renderer-react-components";
 import { TradexDocument } from "../../types";
 import get from "lodash.get";
 import { utils } from "@tradetrust/open-attestation";
