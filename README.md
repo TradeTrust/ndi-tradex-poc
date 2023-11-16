@@ -77,6 +77,5 @@ localStorage.debug = "app:\*"
 
 ### oa
 
-open-attestation wrap ./fixtures/raw-documents --output-dir ./fixtures/wrapped-documents --oav3
+refer to this [generate](https://github.com/TradeTrust/open-attestation/blob/alpha/scripts/generate.ts) script to sign and wrap a tt-v4 doc
 
-open-attestation sign ./fixtures/wrapped-documents --od ./fixtures/signed-documents --public-key did:ethr:0xE94E4f16ad40ADc90C29Dc85b42F1213E034947C#controller --key PK
