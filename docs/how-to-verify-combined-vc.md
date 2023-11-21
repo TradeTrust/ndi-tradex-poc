@@ -95,7 +95,7 @@ import {
   verificationBuilder,
   openAttestationVerifiers,
   tradeTrustIDVCIdentityProof
-} from "@tradetrust/oa-verify";
+} from "@tradetrust-tt/tt-verify";
 
 const verify = verificationBuilder(
   [...openAttestationVerifiers, tradeTrustIDVCIdentityProof],

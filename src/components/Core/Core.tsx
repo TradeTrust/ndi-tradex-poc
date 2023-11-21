@@ -1,6 +1,6 @@
 import { useCallback, FunctionComponent } from "react";
-import { utils, TTv4 } from "@tradetrust/open-attestation";
-import { VerificationFragment } from "@tradetrust/oa-verify";
+import { utils, TTv4 } from "@tradetrust-tt/tradetrust";
+import { VerificationFragment } from "@tradetrust-tt/tt-verify";
 import { VerificationFragments } from "../VerificationFragments";
 import { CorporateVC } from "../CorporateVC";
 import { DocumentRenderer } from "../DocumentRenderer";

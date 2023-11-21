@@ -6,9 +6,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@tradetrust/open-attestation": "^6.8.0-alpha.2",
-    "@tradetrust/oa-verify": "^8.3.0-alpha.3",
-    "@tradetrust/decentralized-renderer-react-components": "^3.13.0-alpha.1",
+    "@tradetrust-tt/tradetrust": "6.8.0-alpha.3",
+    "@tradetrust-tt/tt-verify": "8.3.0-alpha.4",
+    "@tradetrust-tt/decentralized-renderer-react-components": "3.13.0-alpha.2",
     "@types/jest": "^29.5.0",
     "@types/lodash.get": "^4.4.8",
     "@types/node": "^18.15.3",
@@ -20,11 +20,11 @@
     "react-dropzone": "^14.2.3",
     "react-scripts": "5.0.1",
     "testcafe": "^2.6.2",
-    "typescript": "^5.0.2",
+    "typescript": "^5.3.2",
     "web-vitals": "^2.1.4"
   },
   "overrides": {
-    "typescript": "^5.0.2"
+    "typescript": "^5.3.2"
   },
   "scripts": {
     "e2e": "testcafe chrome --hostname localhost integration/*.spec.ts",
