@@ -5,7 +5,7 @@ import {
   isValid,
   VerificationFragment,
   InvalidVerificationFragment,
-} from "@tradetrust/oa-verify";
+} from "@tradetrust-tt/tt-verify";
 import { verify } from "../../services/verify";
 import { TradexDocument } from "../../types";
 import { createLogger } from "../../utils/debug";
@@ -33,7 +33,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
       ? "bg-red-50 border-red-300"
       : "bg-white border-gray-300";
   const uiErrorMsgs = fragments.filter(
-    (fragment) => fragment.status === "INVALID" || fragment.status === "ERROR"
+    (fragment) => fragment.status === "INVALID" || fragment.status === "ERROR",
   ) as InvalidVerificationFragment<any>[];
 
   const onDragEnter = useCallback(() => {
@@ -43,7 +43,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
 
   const onDrop = useCallback(
     (acceptedFiles: any[]) => {
-      setTradexDocument(null) // clear
+      setTradexDocument(null); // clear
       setStatus("pending");
       acceptedFiles.forEach((file) => {
         const reader = new FileReader();
@@ -70,7 +70,7 @@ export const DocumentDropzone: FunctionComponent<DocumentDropzoneProps> = ({
         reader.readAsText(file);
       });
     },
-    [setFragments, setTradexDocument]
+    [setFragments, setTradexDocument],
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({

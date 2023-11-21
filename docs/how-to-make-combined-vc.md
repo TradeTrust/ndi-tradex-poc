@@ -85,4 +85,4 @@ In its most minimal form, the raw combined document should look something like t
 
 ## Notes:
 
-Ensure that your raw document follows the [TTv4-alpha schema](https://schemata.openattestation.com/io/tradetrust/4.0/alpha-schema.json), and you will be able to wrap using the @tradetrust/open-attestation library. Refer to the readme of that library for more details.
+Ensure that your raw document follows the [TTv4-alpha schema](https://schemata.openattestation.com/io/tradetrust/4.0/alpha-schema.json), and you will be able to wrap using the @tradetrust-tt/tradetrust library. Refer to the readme of that library for more details.

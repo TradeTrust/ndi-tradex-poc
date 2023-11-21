@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { VerificationFragment } from "@tradetrust/oa-verify";
+import { VerificationFragment } from "@tradetrust-tt/tt-verify";
 import { DocumentDropzone } from "./components/DocumentDropzone";
 import { TradexDocument } from "./types";
 import { TradeTrustLogo } from "./assets/logos";
@@ -9,7 +9,7 @@ import { Core } from "./components/Core";
 
 export const App = () => {
   const [tradexDocument, setTradexDocument] = useState<TradexDocument | null>(
-    null
+    null,
   );
   const [fragments, setFragments] = useState<VerificationFragment[]>([]);
 

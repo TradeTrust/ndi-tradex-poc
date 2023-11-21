@@ -4,10 +4,10 @@ import {
   renderDocument,
   FrameActions,
   HostActionsHandler,
-} from "@tradetrust/decentralized-renderer-react-components";
+} from "@tradetrust-tt/decentralized-renderer-react-components";
 import { TradexDocument } from "../../types";
 import get from "lodash.get";
-import { utils } from "@tradetrust/open-attestation";
+import { utils } from "@tradetrust-tt/tradetrust";
 
 interface DocumentRendererProps {
   tradexDocument: TradexDocument | null;
@@ -32,8 +32,8 @@ export const DocumentRenderer: FunctionComponent<DocumentRendererProps> = ({
           ? {
               document: utils.getData(tradexDocument) as any,
             }
-          : { document: tradexDocument as any }
-      )
+          : { document: tradexDocument as any },
+      ),
     );
   };
 
@@ -58,7 +58,7 @@ export const DocumentRenderer: FunctionComponent<DocumentRendererProps> = ({
         return fallback;
       }
     },
-    [document]
+    [document],
   );
 
   return (
