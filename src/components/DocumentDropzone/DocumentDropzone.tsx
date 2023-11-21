@@ -5,7 +5,7 @@ import {
   isValid,
   VerificationFragment,
   InvalidVerificationFragment,
-} from "@tradetrust/oa-verify";
+} from "@tradetrust-tt/tt-verify";
 import { verify } from "../../services/verify";
 import { TradexDocument } from "../../types";
 import { createLogger } from "../../utils/debug";
