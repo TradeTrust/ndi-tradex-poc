@@ -8,7 +8,7 @@ In its most minimal form, the raw combined document should look something like t
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://schemata.openattestation.com/io/tradetrust/4.0/alpha-context.json"
+    "https://schemata.tradetrust.io/io/tradetrust/4.0/alpha-context.json"
   ],
   "type": [
     "VerifiableCredential",
