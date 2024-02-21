@@ -7,7 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@tradetrust-tt/tradetrust": "6.8.0-alpha.4",
-    "@tradetrust-tt/tt-verify": "8.3.0-alpha.5",
+    "@tradetrust-tt/tt-verify": "8.7.0",
     "@tradetrust-tt/decentralized-renderer-react-components": "3.13.0-alpha.3",
     "@types/jest": "^29.5.0",
     "@types/lodash.get": "^4.4.8",
